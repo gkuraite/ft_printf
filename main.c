@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/03 16:28:28 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/05/03 17:12:37 by gkuraite         ###   ########.fr       */
+/*   Created: 2018/05/03 16:05:31 by gkuraite          #+#    #+#             */
+/*   Updated: 2018/05/03 16:08:25 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
-static void		zero(t_flags *flags)
+int		main(void)
 {
-	flags->plus = 0;
-	flags->minus = 0;
-	flags->hash = 0;
-	flags->zero = 0;
-	flags->space = 0;
-	flags->width = 0;
-	flags->precision = 0;
-	flags->size = 0;
-	flags->type = 0;
-}
+	int		ret1;
+	int		ret2;
 
-int				ft_printf(const char *restrict format, ...)
-{
-
+	ret1 = ft_printf("", );
+	ret2 = printf("", );
+	pritnf("", ret1, ret2);
+	return();
 }
