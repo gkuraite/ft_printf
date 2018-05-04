@@ -6,7 +6,7 @@
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/03 15:33:56 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/05/03 16:30:25 by gkuraite         ###   ########.fr       */
+/*   Updated: 2018/05/04 11:44:57 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 # include <unistd.h>
 # include <stdlib.h>
+#include <stdarg.h>
 # include "libft/libft.h"
 
 typedef struct		s_formatlist

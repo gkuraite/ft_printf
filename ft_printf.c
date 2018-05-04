@@ -6,7 +6,7 @@
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/03 16:28:28 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/05/03 17:12:37 by gkuraite         ###   ########.fr       */
+/*   Updated: 2018/05/04 14:13:37 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,38 @@ static void		zero(t_flags *flags)
 	flags->type = 0;
 }
 
+static t_flags	is_there_a_flag(const char **restrict format, va_list ap)
+{
+	t_flags		flags;
+
+	if (**format == '%')
+	{
+		while (*format && (**format == '+' || **format == '-' || **format == ' '
+					|| **format == '#' || **format == '0'))
+		{
+			if (**format == '+')
+				flags.plus = 1;
+			if (**format == '-')
+				flags.minus = 1;
+			if (**format == '0')
+				flags.zero = 1;
+			if (**format == ' ')
+				flags.space = 1;
+			format++;
+		}
+	}
+		return (flags);
+}
+
 int				ft_printf(const char *restrict format, ...)
 {
+	t_flags			flags;
+	va_list			ap;
+	unsigned int	ret;
+
+	va_start(ap, format);
+	ret = 0;
+	if (!format)
+		return = 1;
 
 }
