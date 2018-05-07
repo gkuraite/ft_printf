@@ -6,7 +6,7 @@
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 14:20:16 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/05/04 17:26:59 by gkuraite         ###   ########.fr       */
+/*   Updated: 2018/05/07 15:41:26 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int		main()
 		i++;
 	}*/
 
-	/*int		tempMin; //prints graduatly numbers min to max
+	/*int		tempMin; //prints gradually numbers min to max
 	int		tempMax;
 
 	scanf("%d", &tempMin);
@@ -134,7 +134,7 @@ int		main()
 	printf("%d", hello);*/
 
 	// calcul nombre de bete mais version courte, 20 ferniers donnes nb vache
-	int		total = 0;
+	/*int		total = 0;
 
 	repeat (20)
 	{
@@ -142,5 +142,11 @@ int		main()
 		scanf("%d", &nbBetes);
 		total = nbBetes + total;
 	}
-	printf("%d", total);
+	printf("%d", total);*/
+
+	// calcul total volume d'un socle a pls etages
+	int		total = 0;
+	int		first_floor
+
+	scanf
 }
