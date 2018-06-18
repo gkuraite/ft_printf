@@ -6,7 +6,7 @@
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/03 16:28:28 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/05/04 14:13:37 by gkuraite         ###   ########.fr       */
+/*   Updated: 2018/06/18 15:22:23 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ int				ft_printf(const char *restrict format, ...)
 	va_start(ap, format);
 	ret = 0;
 	if (!format)
-		return = 1;
-
+		return (1);
+	return(2);
 }

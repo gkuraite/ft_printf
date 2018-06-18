@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   va_start1.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/03 16:05:31 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/06/18 12:27:30 by gkuraite         ###   ########.fr       */
+/*   Created: 2018/06/18 15:22:46 by gkuraite          #+#    #+#             */
+/*   Updated: 2018/06/18 15:34:00 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include  <stdio.h>
+#include <stdarg.h>
+
+void	yas_bitch(int numbers, ...)
+{
+	va_list
+}
 
 int		main(void)
 {
-	int		ret1;
-	int		ret2;
-
-	ret1 = ft_printf("%+--d", 341);
-	ret2 = printf("%+--d", 341);
-	printf("%d %d", ret1, ret2);
-	return(0);
+	yas_bitch();
+	return (0);
 }

@@ -1,0 +1,41 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2018/04/19 18:41:43 by gkuraite          #+#    #+#              #
+#    Updated: 2018/04/19 18:41:50 by gkuraite         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = libftprintf.a
+SOURCES = ft_printf1.c ft_printf2.c ft_printf_d.c ft_printf_o.c ft_printf_u.c ft_printf_x.c ft_printf_c.c ft_printf_pc.c ft_printf_s.c ft_printf_p.c
+LIBFTFILES = ft_isdigit.o ft_itoa.o ft_memchr.o ft_memset.o ft_putchar.o ft_putstr.o ft_strdup.o ft_strjoin.o ft_strlen.o ft_strnew.o ft_strstr.o ft_toupper.o ft_strnjoin.o ft_swap.o ft_ftoa.o ft_dtoa.o ft_itoabase.o ft_toupperstr.o ft_atoiptr.o ft_sttoa.o ft_utoa.o ft_strrev.o ft_putwchar.o ft_putwstr.o ft_wstrjoin.o ft_wstrlen.o ft_wstrnjoin.o ft_wstrstr.o ft_wstrnew.o ft_putendl.o ft_mbstr.o ft_strjoinfree.o ft_strsub.o
+OBJ = $(SOURCES:.c=.o)  
+INCLUDES = ft_printf.h
+FLAGS = -Wall -Werror -Wextra
+
+all: $(NAME)
+
+$(NAME):
+	@gcc $(FLAGS) -c $(SOURCES) -I $(INCLUDES)
+	@cd libft && make
+	@ar rc $(NAME) $(OBJ) $(subst ft_,libft/ft_,$(LIBFTFILES))
+
+clean:
+	@rm -f $(OBJ)
+	@cd libft && make clean
+
+fclean: clean
+	@rm -f $(NAME)
+	@cd libft && make fclean
+
+re: fclean
+	@make
+
+it:
+	@make re
+	@make clean
+	@cp libftprintf.a ~/Downloads/curqui_test
