@@ -28,6 +28,7 @@ typedef struct		s_formatlist
 	int		precision;
 	int		size;
 	int		type;
+	
 }					t_flags;
 
 int		ft_printf(const char *restrict format, ...);
