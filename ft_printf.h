@@ -6,7 +6,7 @@
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/03 15:33:56 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/05/04 11:44:57 by gkuraite         ###   ########.fr       */
+/*   Updated: 2018/07/18 15:31:37 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdarg.h>
 # include "libft/libft.h"
 
-typedef struct		s_formatlist
+typedef struct		s_flags
 {
 	int		plus;
 	int		minus;
@@ -28,9 +28,10 @@ typedef struct		s_formatlist
 	int		precision;
 	int		size;
 	int		type;
+
 	
 }					t_flags;
 
-int		ft_printf(const char *restrict format, ...);
+int		ft_printf(const char *format, ...);
 
 #endif
