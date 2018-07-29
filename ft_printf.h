@@ -6,7 +6,7 @@
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/03 15:33:56 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/07/18 15:31:37 by gkuraite         ###   ########.fr       */
+/*   Updated: 2018/07/25 10:20:18 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define FT_PRINTF_H
 # include <unistd.h>
 # include <stdlib.h>
-#include <stdarg.h>
-# include "libft/libft.h"
+# include <stdarg.h>
+# include "libft/includes/libft.h"
 
 typedef struct		s_flags
 {

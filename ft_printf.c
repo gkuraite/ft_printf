@@ -25,9 +25,13 @@ static void		zero(t_flags *flags)
 	flags->type = 0;
 }
 
-//static t_flags fill_the_flags(const char **restirct format, va)
+//static t_flags fill_the_flags(const char **restirct form, t_list flags, va_list ap)
+//{
+//	if (ft_isdigit(**form))
+//		f.width = 	
+//}
 
-static t_flags	is_there_a_flag(const char **restrict format)
+static t_flags	is_there_a_flag(const char *restrict *format)
 {
 	t_flags		flags;
 
@@ -52,7 +56,7 @@ static t_flags	is_there_a_flag(const char **restrict format)
 		return (flags);
 }
 
-int				ft_printf(const char * format, ...)
+int				ft_printf(const char *restrict format, ...)
 {
 	t_flags			flags;
 	va_list			ap;
