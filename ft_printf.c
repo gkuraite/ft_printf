@@ -11,9 +11,38 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
+
+static size_t		ft_strlen(const char *str)
+{
+	size_t	i;
+
+	if (!str)
+		return (0);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+
+static char	*ft_strchr(const char *s, int c)
+{
+	while (*s != '\0' && *s != (char)c)
+		s++;
+	if (*s == (char)c)
+		return ((char *)s);
+	return (NULL);
+}
+
+
+static void	ft_putchar(char c)
+{
+	write(1, &c, 1);	
+}
 
 static void		zero(t_flags *flags)
 {
+	flags->is_flag = 0;
 	flags->plus = 0;
 	flags->minus = 0;
 	flags->hash = 0;
@@ -25,56 +54,52 @@ static void		zero(t_flags *flags)
 	flags->type = 0;
 }
 
-//static t_flags fill_the_flags(const char **restirct form, t_list flags, va_list ap)
-//{
-//	if (ft_isdigit(**form))
-//		f.width = 	
-//}
-
-static t_flags	is_there_a_flag(const char *restrict *format)
+void	is_there_a_flag(t_flags *flags, va_list *ap)
 {
-	t_flags		flags;
-
-	zero(&flags);
-	if (**format == '%')
+	zero(flags);
+	flags->i++;
+//	printf("format = %c\n", flags->format[flags->i]);
+	while (flags->format[flags->i] != '\0' && ft_strchr("-+0 #0123456789.hljz", flags->format[flags->i]))
 	{
-		(*format)++;
-		while (*format && (**format == '+' || **format == '-' || **format == ' '
-					|| **format == '#' || **format == '0'))
-		{
-			if (**format == '+')
-				flags.plus = 1;
-			if (**format == '-')
-				flags.minus = 1;
-			if (**format == '0')
-				flags.zero = 1;
-			if (**format == ' ')
-				flags.space = 1;
-			format++;
-		}
+		ft_check_flags(flags);
+		ft_check_width(flags);
+		flags->i++;
 	}
-		return (flags);
+	if (flags->format[flags->i] == 'd')
+		flag_d(flags, ap);
+	printf("\n is there a width ?\t%d\n", flags->width);
+	flags->i++;
 }
 
 int				ft_printf(const char *restrict format, ...)
 {
-	t_flags			flags;
 	va_list			ap;
-	unsigned int	ret;
-
+	t_flags			flags;
+	
 	va_start(ap, format);
-	ret = 0;
-	if (!format)
-		return (1);
-	while (*format)
+	flags.i = 0;
+	flags.format = format;
+	printf("What's in format? \n%s\n", flags.format);
+	if (!flags.format)
 	{
-		if (*format == '%')
-		{
-			flags = is_there_a_flag(&format);
-		}
-		else if (++ret && *format)
-			ft_putchar(*format);
-		format++;
+		printf("ERROR 1\n");
+		return (1);
 	}
-	return(ret);
+	while (flags.format[flags.i])
+	{
+		if (flags.format[flags.i] == '%')
+		{
+			is_there_a_flag(&flags, &ap);
+		}
+		if (flags.format[flags.i] == '\0')
+			return (0);
+		else
+			ft_putchar((char)flags.format[flags.i]);
+		//else if (++ret && flags.format)
+		//	ft_putchar((char)flags.format);
+	//	printf(" format = %c\n", flags.format[i]);
+		flags.i++;
+		
+	}
+	return(0);
 }

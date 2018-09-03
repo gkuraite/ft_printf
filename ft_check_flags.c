@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_check_flags.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/03 16:05:31 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/09/03 11:26:22 by gkuraite         ###   ########.fr       */
+/*   Created: 2018/09/03 16:17:00 by gkuraite          #+#    #+#             */
+/*   Updated: 2018/09/03 16:17:03 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int		main(void)
+void        ft_check_flags(t_flags *flags)
 {
-	//int		a;
-	//int		b;
-
-	/*ret1 = ft_printf("M : +d\n");
-	ret2 = printf("O : +d\n");
-	printf("%s\n%s\n", ret1, ret2);*/
-
-	//wchar_t *str =;
-	//ft_printf("O:%d M:%d", b, a);
-
-	printf("printf > Hello World %d\n", 15);
-	ft_printf("ft_printf > Hello World %23d\n", 15);
-	return(0);
+    if (flags->format[flags->i] == '+')
+        flags->plus = 1;
+    if (flags->format[flags->i] == '-')
+        flags->minus = 1;
+    if (flags->format[flags->i] == '0')
+        flags->zero = 1;
+    if (flags->format[flags->i] == ' ')
+        flags->space = 1;
+    if (flags->format[flags->i] == '#')
+        flags->hash = 1;
 }

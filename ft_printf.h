@@ -15,10 +15,14 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
-# include "libft/includes/libft.h"
+//# include "libft/includes/libft.h"
 
 typedef struct		s_flags
 {
+	const char	*format;
+	int		i;
+
+	int		is_flag;
 	int		plus;
 	int		minus;
 	int		hash;
@@ -33,5 +37,9 @@ typedef struct		s_flags
 }					t_flags;
 
 int		ft_printf(const char *restrict format, ...);
+int 	flag_d(t_flags *flags, va_list *ap);
+void    ft_check_flags(t_flags *flags);
+void    ft_check_width(t_flags *form);
+
 
 #endif
