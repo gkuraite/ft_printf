@@ -19,8 +19,8 @@ int     check_precision(t_flags *f)
         f->i++;
         while (ft_isdigit(f->format[f->i]))
         {
-            f->width *= 10;
-            f->width += (f->format[f->i] - 48);
+            f->precision *= 10;
+            f->precision += (f->format[f->i] - 48);
             f->i++;  
         }
     }

@@ -40,6 +40,7 @@ int 	flag_d(t_flags *flags, va_list *ap);
 int	    check_flags(t_flags *f);
 int		check_width(t_flags *f);
 int     check_precision(t_flags *f);
+int     check_size(t_flags *f);
 
 
 

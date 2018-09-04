@@ -37,12 +37,14 @@ static void	checking_printf(t_flags *flags, va_list *ap)
 		check_flags(flags);
 		check_width(flags);
 		check_precision(flags);
+		check_size(flags);
 	}
 	if (flags->format[flags->i] == 'd')
 		flag_d(flags, ap);
 	//printf("\nis there a zero ?\t%d\n", flags->zero);
 	//printf("\nWhat is the width ?\t%d\n", flags->width);
-	printf("\nWhat is the precision ?\t%d\n", flags->precision);
+	// printf("\nWhat is the precision ?\t%d\n", flags->precision);
+	printf("\nWhat is the size ?\t%d\n", flags->size);
 	flags->i++;
 }
 
@@ -72,7 +74,6 @@ int				ft_printf(const char *restrict format, ...)
 			ft_putchar((char)flags.format[flags.i]);
 		//else if (++ret && flags.format)
 		//	ft_putchar((char)flags.format);
-	//	printf(" format = %c\n", flags.format[i]);
 		flags.i++;
 		
 	}
