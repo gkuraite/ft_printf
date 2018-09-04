@@ -13,33 +13,6 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
-static size_t		ft_strlen(const char *str)
-{
-	size_t	i;
-
-	if (!str)
-		return (0);
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
-static char	*ft_strchr(const char *s, int c)
-{
-	while (*s != '\0' && *s != (char)c)
-		s++;
-	if (*s == (char)c)
-		return ((char *)s);
-	return (NULL);
-}
-
-
-static void	ft_putchar(char c)
-{
-	write(1, &c, 1);	
-}
-
 static void		zero(t_flags *flags)
 {
 	flags->is_flag = 0;
@@ -54,20 +27,22 @@ static void		zero(t_flags *flags)
 	flags->type = 0;
 }
 
-void	is_there_a_flag(t_flags *flags, va_list *ap)
+static void	checking_printf(t_flags *flags, va_list *ap)
 {
 	zero(flags);
 	flags->i++;
 //	printf("format = %c\n", flags->format[flags->i]);
 	while (flags->format[flags->i] != '\0' && ft_strchr("-+0 #0123456789.hljz", flags->format[flags->i]))
 	{
-		ft_check_flags(flags);
-		ft_check_width(flags);
-		flags->i++;
+		check_flags(flags);
+		check_width(flags);
+		check_precision(flags);
 	}
 	if (flags->format[flags->i] == 'd')
 		flag_d(flags, ap);
-	printf("\n is there a width ?\t%d\n", flags->width);
+	//printf("\nis there a zero ?\t%d\n", flags->zero);
+	//printf("\nWhat is the width ?\t%d\n", flags->width);
+	printf("\nWhat is the precision ?\t%d\n", flags->precision);
 	flags->i++;
 }
 
@@ -79,7 +54,7 @@ int				ft_printf(const char *restrict format, ...)
 	va_start(ap, format);
 	flags.i = 0;
 	flags.format = format;
-	printf("What's in format? \n%s\n", flags.format);
+	printf("\nWhat's in format? \n%s\n", flags.format);
 	if (!flags.format)
 	{
 		printf("ERROR 1\n");
@@ -89,7 +64,7 @@ int				ft_printf(const char *restrict format, ...)
 	{
 		if (flags.format[flags.i] == '%')
 		{
-			is_there_a_flag(&flags, &ap);
+			checking_printf(&flags, &ap);
 		}
 		if (flags.format[flags.i] == '\0')
 			return (0);

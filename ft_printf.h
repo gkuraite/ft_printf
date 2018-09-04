@@ -12,10 +12,9 @@
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include <unistd.h>
-# include <stdlib.h>
+# include <limits.h>
 # include <stdarg.h>
-//# include "libft/includes/libft.h"
+# include "libft/libft.h"
 
 typedef struct		s_flags
 {
@@ -38,8 +37,10 @@ typedef struct		s_flags
 
 int		ft_printf(const char *restrict format, ...);
 int 	flag_d(t_flags *flags, va_list *ap);
-void    ft_check_flags(t_flags *flags);
-void    ft_check_width(t_flags *form);
+int	    check_flags(t_flags *f);
+int		check_width(t_flags *f);
+int     check_precision(t_flags *f);
+
 
 
 #endif

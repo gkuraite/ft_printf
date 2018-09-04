@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flag_d.c                                           :+:      :+:    :+:   */
+/*   check_width.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/03 11:33:42 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/09/03 11:33:43 by gkuraite         ###   ########.fr       */
+/*   Created: 2018/09/03 17:02:34 by gkuraite          #+#    #+#             */
+/*   Updated: 2018/09/03 17:02:37 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdarg.h>
 
-
-int     flag_d(t_flags *flags, va_list *ap)
+int	check_width(t_flags *f)
 {
-    int num;
-
-	num = (int)va_arg(*ap, int);
-
-	if (flags->type != 'D')
-    	ft_putnbr(num);
-    return (0);
+	while (ft_isdigit(f->format[f->i]))
+	{
+		f->width *= 10;
+		f->width += (f->format[f->i] - 48);
+		f->i++;
+	}
+	if (f->width > INT_MAX || f->width <= 0)
+		f->width= 0;
+	return (f->i);
 }

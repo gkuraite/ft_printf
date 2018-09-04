@@ -25,7 +25,7 @@ int		main(void)
 	//wchar_t *str =;
 	//ft_printf("O:%d M:%d", b, a);
 
-	printf("printf > Hello World %d\n", 15);
-	ft_printf("ft_printf > Hello World %23d\n", 15);
+	printf("printf > Hello World %.3f\n", 157);
+	ft_printf("ft_printf > Hello World %.3f\n", 157);
 	return(0);
 }

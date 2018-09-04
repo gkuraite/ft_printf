@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flag_d.c                                           :+:      :+:    :+:   */
+/*   check_precision.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/03 11:33:42 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/09/03 11:33:43 by gkuraite         ###   ########.fr       */
+/*   Created: 2018/09/04 13:24:24 by gkuraite          #+#    #+#             */
+/*   Updated: 2018/09/04 13:24:26 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdarg.h>
 
-
-int     flag_d(t_flags *flags, va_list *ap)
+int     check_precision(t_flags *f)
 {
-    int num;
-
-	num = (int)va_arg(*ap, int);
-
-	if (flags->type != 'D')
-    	ft_putnbr(num);
-    return (0);
+    if (f->format[f->i] == '.')
+    {
+        f->i++;
+        while (ft_isdigit(f->format[f->i]))
+        {
+            f->width *= 10;
+            f->width += (f->format[f->i] - 48);
+            f->i++;  
+        }
+    }
+    return (f->i);
 }
