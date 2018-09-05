@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	check_width(t_flags *f)
+void	check_width(t_flags *f)
 {
 	while (ft_isdigit(f->format[f->i]))
 	{
@@ -22,5 +22,4 @@ int	check_width(t_flags *f)
 	}
 	if (f->width > INT_MAX || f->width <= 0)
 		f->width= 0;
-	return (f->i);
 }

@@ -13,11 +13,11 @@
 NAME = libftprintf.a
 
 SRC = ft_printf.c flag_d.c check_flags.c check_width.c check_precision.c \
-	  check_size.c
+	  check_size.c printf_errors.c is_it_valid.c
 
 LIBFT_PATH = libft/
 LIBFT_SRC = ft_putchar.c ft_strchr.c ft_putnbr.c ft_itoa.c ft_strdup.c \
-			ft_itoa.c ft_isdigit.c ft_atoi.c
+			ft_itoa.c ft_isdigit.c ft_atoi.c ft_putstr.c
 
 OBJ = $(SRC:.c=.o)
 LIB_OBJ = $(LIBFT_SRC:.c=.o)

@@ -32,19 +32,25 @@ static void	checking_printf(t_flags *flags, va_list *ap)
 	zero(flags);
 	flags->i++;
 //	printf("format = %c\n", flags->format[flags->i]);
-	while (flags->format[flags->i] != '\0' && ft_strchr("-+0 #0123456789.hljz", flags->format[flags->i]))
+	if (flags->format[flags->i] != '\0' && 
+			ft_strchr("-+0 #0123456789.hljz", flags->format[flags->i]))
 	{
 		check_flags(flags);
 		check_width(flags);
 		check_precision(flags);
 		check_size(flags);
+		
 	}
 	if (flags->format[flags->i] == 'd')
 		flag_d(flags, ap);
+	//printf("\nis there a plus ?\t%d\n", flags->plus);
+	//printf("\nis there a minus ?\t%d\n", flags->minus);
+	//printf("\nis there a space ?\t%d\n", flags->space);
 	//printf("\nis there a zero ?\t%d\n", flags->zero);
+	//printf("\nis there a hash ?\t%d\n", flags->hash);
 	//printf("\nWhat is the width ?\t%d\n", flags->width);
-	// printf("\nWhat is the precision ?\t%d\n", flags->precision);
-	printf("\nWhat is the size ?\t%d\n", flags->size);
+	//printf("\nWhat is the precision ?\t%d\n", flags->precision);
+	//printf("\nWhat is the size ?\t%d\n", flags->size);
 	flags->i++;
 }
 

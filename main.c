@@ -25,9 +25,9 @@ int		main(void)
 	//wchar_t *str =;
 	//ft_printf("O:%d M:%d", b, a);
 
-	char c = 0xf0;
+//	char c = 0xf0;
 
-	printf("ORIG > Hello World %llx\n", c);
-	ft_printf("MINE > Hello World %llx\n", c);
+	printf("ORIG > Hello World %zzd\n", 15);
+	ft_printf("MINE > Hello World %zzd\n", 15);
 	return(0);
 }

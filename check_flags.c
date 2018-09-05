@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int     check_flags(t_flags *f)
+void    check_flags(t_flags *f)
 {
     while (f->format && (f->format[f->i] == '+' || f->format[f->i] == '-' || \
     f->format[f->i] == '0' ||f->format[f->i] == ' '|| f->format[f->i] == '#'))
@@ -28,7 +28,6 @@ int     check_flags(t_flags *f)
         if (f->format[f->i] == '#')
             f->hash = 1;
         f->i++;
-    }
-    return (f->i);   
+    } 
 }
     

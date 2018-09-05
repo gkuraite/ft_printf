@@ -37,10 +37,11 @@ typedef struct		s_flags
 
 int		ft_printf(const char *restrict format, ...);
 int 	flag_d(t_flags *flags, va_list *ap);
-int	    check_flags(t_flags *f);
-int		check_width(t_flags *f);
-int     check_precision(t_flags *f);
-int     check_size(t_flags *f);
+void	check_flags(t_flags *f);
+void	check_width(t_flags *f);
+void    check_precision(t_flags *f);
+void    check_size(t_flags *f);
+void    printf_errors(int error_num);
 
 
 

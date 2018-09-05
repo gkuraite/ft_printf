@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int     check_precision(t_flags *f)
+void     check_precision(t_flags *f)
 {
     if (f->format[f->i] == '.')
     {
@@ -24,5 +24,4 @@ int     check_precision(t_flags *f)
             f->i++;  
         }
     }
-    return (f->i);
 }
