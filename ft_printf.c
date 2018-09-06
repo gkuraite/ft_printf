@@ -42,7 +42,7 @@ static void	checking_printf(t_flags *flags, va_list *ap)
 		
 	}
 	if (flags->format[flags->i] == 'd')
-		flag_d(flags, ap);
+		d_conversion(flags, ap);
 	//printf("\nis there a plus ?\t%d\n", flags->plus);
 	//printf("\nis there a minus ?\t%d\n", flags->minus);
 	//printf("\nis there a space ?\t%d\n", flags->space);

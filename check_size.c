@@ -23,9 +23,9 @@ void    check_size(t_flags *f)
     }
     if (f->format[f->i] == 'l')
     {      
-        f->size = 4;
+        f->size = 3;
         if (f->format[f->i + 1] == 'l')
-            f->size = 3;
+            f->size = 4;
     }
     if (f->format[f->i] == 'z')
     {   
@@ -34,11 +34,10 @@ void    check_size(t_flags *f)
             printf_errors(1);
     }
     if (f->format[f->i] == 'j')
+    {
         f->size = 6;
-    //if (f->format[f->i + 1] == 'j' || f->format[f->i + 1] == 'z')
-    //{
-    //    printf("", );
-    //    printf_errors(1);
-    //}
+        if (f->format[f->i + 1] == 'z')
+             printf_errors(1);
+    }
     f->i++;
 }

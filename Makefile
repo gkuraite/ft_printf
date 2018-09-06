@@ -12,7 +12,7 @@
 
 NAME = libftprintf.a
 
-SRC = ft_printf.c flag_d.c check_flags.c check_width.c check_precision.c \
+SRC = ft_printf.c d_conversion.c check_flags.c check_width.c check_precision.c \
 	  check_size.c printf_errors.c is_it_valid.c
 
 LIBFT_PATH = libft/

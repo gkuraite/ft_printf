@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/03 16:05:31 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/09/03 11:26:22 by gkuraite         ###   ########.fr       */
+/*   Created: 2018/09/05 14:03:41 by gkuraite          #+#    #+#             */
+/*   Updated: 2018/09/05 14:03:44 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int		main(void)
+static void      error_message(int error_num)
 {
-	//int		a;
-	//int		b;
+    error_num == 1 ? write(1, "\n\t***Warning: undefined behaviour***\t\n", 38) : 0;
+    //error_num == 1 ? ft_putstr("\n\t***Warning: undefined behaviour***\t\n") : 0;
+}
 
-	/*ret1 = ft_printf("M : +d\n");
-	ret2 = printf("O : +d\n");
-	printf("%s\n%s\n", ret1, ret2);*/
-
-	//wchar_t *str =;
-	//ft_printf("O:%d M:%d", b, a);
-
-//	char c = 0xf0;
-
-	printf("ORIG > Hello World %% Or %%");
-	//ft_printf("MINE > Hello World %zzd\n", 15);
-	return(0);
+void        printf_errors(int error_num)
+{
+    if (error_num > 0)
+        error_message(error_num);
 }
