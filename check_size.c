@@ -27,13 +27,13 @@ void    check_size(t_flags *f)
         if (f->format[f->i + 1] == 'l')
             f->size = 4;
     }
-    if (f->format[f->i] == 'z')
+    if (f->format[f->i] == 'j')
     {   
         f->size = 5;
-        if (f->format[f->i + 1] == 'z')
+        if (f->format[f->i + 1] == 'j')
             printf_errors(1);
     }
-    if (f->format[f->i] == 'j')
+    if (f->format[f->i] == 'z')
     {
         f->size = 6;
         if (f->format[f->i + 1] == 'z')

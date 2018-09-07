@@ -15,19 +15,10 @@
 
 int		main(void)
 {
-	//int		a;
-	//int		b;
-
-	/*ret1 = ft_printf("M : +d\n");
-	ret2 = printf("O : +d\n");
-	printf("%s\n%s\n", ret1, ret2);*/
-
-	//wchar_t *str =;
-	//ft_printf("O:%d M:%d", b, a);
 
 //	char c = 0xf0;
 
-	printf("ORIG > Hello World %% Or %%");
-	//ft_printf("MINE > Hello World %zzd\n", 15);
+	printf("%s\n", "-----------------");
+	//ft_printf("MINE > Hello World %jjd\n", 15);
 	return(0);
 }

@@ -12,5 +12,10 @@
 
 #include "ft_printf.h"
 
-
-
+int     is_it_valid(t_flags *f)
+{
+    if (f->plus)
+        f->space = 0;
+    if (f->minus)
+        f->zero = 0;
+}
