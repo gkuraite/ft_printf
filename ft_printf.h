@@ -17,6 +17,10 @@
 # include "libft/libft.h"
 # include <stdio.h>
 
+# define SUB_SPECIFIERS "-+0 #0123456789.hljz"
+# define SPECIFIERS "sSpdDioOuUxXcCb%"
+
+
 typedef struct		s_flags
 {
 	const char	*format;
@@ -45,7 +49,9 @@ void    printf_errors(int error_num);
 
 void 	is_it_valid(t_flags *f);
 
-int 	d_conversion(t_flags *f, va_list *ap);
+int 	converter_d(t_flags *f, va_list *ap);
+int		converter_s(t_flags *f, va_list *ap);
+int     converter_u(t_flags *f, va_list *ap);
 
 
 #endif

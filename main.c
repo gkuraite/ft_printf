@@ -16,9 +16,9 @@
 int		main(void)
 {
 
-//	char c = 0xf0;
+	//char  = 0xf0;
 
-	printf("%s\n", "-----------------");
-	//ft_printf("MINE > Hello World %jjd\n", 15);
+	ft_printf("MINE > %u\n", 123);
+	printf("ORIG > %u\n", 123);
 	return(0);
 }

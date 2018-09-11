@@ -33,7 +33,7 @@ static void	checking_printf(t_flags *flags, va_list *ap)
 	flags->i++;
 //	printf("format = %c\n", flags->format[flags->i]);
 	if (flags->format[flags->i] != '\0' && 
-			ft_strchr("-+0 #0123456789.hljz", flags->format[flags->i]))
+			ft_strchr(SUB_SPECIFIERS, flags->format[flags->i]))
 	{
 		check_flags(flags);
 		check_width(flags);
@@ -41,8 +41,12 @@ static void	checking_printf(t_flags *flags, va_list *ap)
 		check_size(flags);
 		
 	}
-	if (flags->format[flags->i] == 'd')
-		d_conversion(flags, ap);
+	if (ft_strchr(SPECIFIERS, flags->format[flags->i]))
+	{
+	//	converter_d(flags, ap);
+		//converter_s(flags, ap);
+		converter_u(flags, ap);
+	}
 	//printf("\nis there a plus ?\t%d\n", flags->plus);
 	//printf("\nis there a minus ?\t%d\n", flags->minus);
 	//printf("\nis there a space ?\t%d\n", flags->space);
