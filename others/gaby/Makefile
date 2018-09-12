@@ -12,17 +12,12 @@
 
 NAME = libftprintf.a
 
-SRC = ft_printf.c printf_errors.c \
-	  converter_d.c converter_s.c converter_u.c converter_x.c converter_o.c \
-	  converter_c.c converter_p.c\
-	  check_flags.c check_width.c check_precision.c check_size.c 
+SRC = ft_printf.c d_conversion.c check_flags.c check_width.c check_precision.c \
+	  check_size.c printf_errors.c 
 
 LIBFT_PATH = libft/
-LIBFT_SRC = ft_putchar.c  ft_putnbr.c ft_putstr.c  \
-			ft_isdigit.c ft_atoi.c ft_itoa.c  ft_utoa.c \
-			ft_strjoin.c ft_strchr.c ft_strlen.c ft_strdup.c ft_strnew.c \
-			ft_memalloc.c ft_memset.c\
-			ft_bzero.c
+LIBFT_SRC = ft_putchar.c ft_strchr.c ft_putnbr.c ft_itoa.c ft_strdup.c \
+			ft_itoa.c ft_isdigit.c ft_atoi.c ft_putstr.c
 
 OBJ = $(SRC:.c=.o)
 LIB_OBJ = $(LIBFT_SRC:.c=.o)

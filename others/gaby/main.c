@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_it_valid.c                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/05 17:27:46 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/09/05 17:27:49 by gkuraite         ###   ########.fr       */
+/*   Created: 2018/05/03 16:05:31 by gkuraite          #+#    #+#             */
+/*   Updated: 2018/09/03 11:26:22 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
-int     is_it_valid(t_flags *f)
+int		main(void)
 {
-    if (f->plus)
-        f->space = 0;
-    if (f->minus)
-        f->zero = 0;
+
+//	char c = 0xf0;
+
+	printf("%s\n", "-----------------");
+	//ft_printf("MINE > Hello World %jjd\n", 15);
+	return(0);
 }

@@ -21,8 +21,8 @@ static void		zero(t_flags *flags)
 	flags->hash = 0;
 	flags->zero = 0;
 	flags->space = 0;
-	flags->width = 0;
-	flags->precision = 0;
+	flags->width = -1;
+	flags->precision = -1;
 	flags->size = 0;
 	flags->type = 0;
 }
@@ -43,9 +43,14 @@ static void	checking_printf(t_flags *flags, va_list *ap)
 	}
 	if (ft_strchr(SPECIFIERS, flags->format[flags->i]))
 	{
-	//	converter_d(flags, ap);
-		//converter_s(flags, ap);
+		converter_d(flags, ap);
+		converter_s(flags, ap);
 		converter_u(flags, ap);
+		converter_x(flags, ap);
+		converter_c(flags, ap);
+		converter_o(flags, ap);
+		converter_p(flags, ap);
+
 	}
 	//printf("\nis there a plus ?\t%d\n", flags->plus);
 	//printf("\nis there a minus ?\t%d\n", flags->minus);
@@ -82,8 +87,6 @@ int				ft_printf(const char *restrict format, ...)
 			return (0);
 		else
 			ft_putchar((char)flags.format[flags.i]);
-		//else if (++ret && flags.format)
-		//	ft_putchar((char)flags.format);
 		flags.i++;
 		
 	}
