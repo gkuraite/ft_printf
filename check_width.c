@@ -23,4 +23,3 @@ void	check_width(t_flags *f)
 	if (f->width > INT_MAX || f->width <= 0)
 		f->width= 0;
 }
-

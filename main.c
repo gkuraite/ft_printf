@@ -16,9 +16,7 @@
 int		main(void)
 {
 
-	//char  = 0xf0;
-
-	ft_printf("MINE > %u\n", 123);
-	printf("ORIG > %u\n", 123);
+	ft_printf("MINE > %o\n", 1000);
+	printf("ORIG > %o\n", 1000);
 	return(0);
 }

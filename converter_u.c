@@ -20,8 +20,9 @@ int     converter_u(t_flags *f, va_list *ap)
 	(void)f;
 	
 	num = (int)va_arg(*ap, int);
-
+	printf("\n NUM = %d\n", num);
 	str = ft_utoa(num);
+	//printf("str = [%s]", str);
 	ft_putstr(str);
 	return (0);
 }
