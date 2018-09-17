@@ -45,10 +45,10 @@ static void	checking_printf(t_flags *flags, va_list *ap)
 	{
 		//converter_d(flags, ap);
 		//converter_s(flags, ap);
-		converter_u(flags, ap);
+		//converter_u(flags, ap);
 		//converter_x(flags, ap);
 		//converter_c(flags, ap);
-		//converter_o(flags, ap);
+		converter_o(flags, ap);
 		//converter_p(flags, ap);
 
 	}

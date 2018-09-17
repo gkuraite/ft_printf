@@ -24,4 +24,3 @@ int     converter_o(t_flags *f, va_list *ap)
 	ft_putstr(str);
 	return (0);
 }
-}
