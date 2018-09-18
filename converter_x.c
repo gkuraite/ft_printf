@@ -12,23 +12,6 @@
 
 #include "ft_printf.h"
 
-/*static int	doevenmoreflags(t_flags *f, char *out)
-{
-	int ret;
-
-	if (f->hash && ft_strstr(out, "x") > ft_strstr(out, "0") + 1)
-	{
-		out[ft_strlen(out) - ft_strlen(ft_strstr(out, "x"))] = '0';
-		out[ft_strlen(out) - ft_strlen(ft_strstr(out, "0")) + 1] = 'x';
-	}
-	if (f->type == 'X')
-		ft_toupperstr(&out);
-	ft_putstr(out);
-	ret = ft_strlen(out);
-	free(out);
-	return (ret);
-}*/
-
 int     converter_x(t_flags *f, va_list *ap)
 {
     int num;
@@ -40,5 +23,4 @@ int     converter_x(t_flags *f, va_list *ap)
     str = ft_itoabase(num, 16);
     ft_putstr(str);
     return (0);
-    //return (doevenmoreflags(f, str));
 }

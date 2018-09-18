@@ -130,7 +130,7 @@ int     main(void)
 	
 	
 	printf("ORIG>\t[%x]\n", 0);
-	printf("ORIG>\t[%x]\n", 0xa0ffff);
+	printf("ORIG>\t[%x]\n", c);
 	printf("ORIG>\t[%x]\n", -12345678);
 	printf("ORIG>\t[%#X]\n", 0);
 	printf("ORIG5>\t[%#x]\n", 0x78aa);

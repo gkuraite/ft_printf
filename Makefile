@@ -14,6 +14,7 @@ NAME = libftprintf.a
 
 SRC = ft_printf.c printf_errors.c \
 	  converter_d.c converter_s.c converter_u.c converter_o.c converter_x.c \
+	  converter_c.c \
 	  check_flags.c check_width.c check_precision.c check_size.c 
 
 LIBFT_PATH = libft/

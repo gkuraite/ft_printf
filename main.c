@@ -16,7 +16,8 @@
 int		main(void)
 {
 
-	ft_printf("MINE > %x\n", 12);
-	printf("ORIG > %x\n", 12);
+	//ft_printf("MINE > %c\n", '>');
+	//printf("ORIG > %c\n", '>');
+	printf("ORIG>\t[%p]\n", (int*)-1);
 	return(0);
 }

@@ -14,5 +14,12 @@
 
 int     converter_c(t_flags *f, va_list *ap)
 {
+    wchar_t  c;
     
+        c = (wchar_t)va_arg(*ap, wchar_t);
+        (void)f;
+    
+        ft_putchar(c);
+        
+        return (0);
 }

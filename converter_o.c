@@ -19,7 +19,6 @@ int     converter_o(t_flags *f, va_list *ap)
 	(void)f;
 	
 	num = (int)va_arg(*ap, int);
-	printf("\n NUM = %d\n", num);
 	str = ft_itoabase(num, 8);
 	ft_putstr(str);
 	return (0);

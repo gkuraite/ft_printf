@@ -52,10 +52,10 @@ void 	is_it_valid(t_flags *f);
 int 	converter_d(t_flags *f, va_list *ap);
 int		converter_s(t_flags *f, va_list *ap);
 int     converter_u(t_flags *f, va_list *ap);
-//int     converter_c(t_flags *f, va_list *ap);
+int     converter_c(t_flags *f, va_list *ap);
 int     converter_x(t_flags *f, va_list *ap);
 int     converter_o(t_flags *f, va_list *ap);
-//int     converter_p(t_flags *f, va_list *ap);
+int     converter_p(t_flags *f, va_list *ap);
 
 
 #endif
