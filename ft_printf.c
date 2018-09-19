@@ -27,6 +27,27 @@ static void		zero(t_flags *flags)
 	flags->type = 0;
 }
 
+static int	print_converter(t_flags *f, va_list *ap)
+{
+	if (f->type == 'd' || f->type == 'i' || f->type == 'D')
+		return (converter_d(f, ap));
+	if (f->type == 'o' || f->type == 'O')
+		return (converter_o(f, ap));
+	if (f->type == 'u' || f->type == 'U')
+		return (converter_u(f, ap));
+	if (f->type == 'x' || f->type == 'X')
+		return (converter_x(f, ap));
+	if (f->type == 'c' || f->type == 'C')
+		return (converter_c(f, ap));
+	//if (f->type == '%')
+	//	return (converter_pc(f));
+	if (f->type == 's' || f->type == 'S')
+		return (converter_s(f, ap));
+	if (f->type == 'p')
+		return (converter_p(f, ap));
+	return (0);
+}
+
 static void	checking_printf(t_flags *flags, va_list *ap)
 {
 	zero(flags);
@@ -47,9 +68,9 @@ static void	checking_printf(t_flags *flags, va_list *ap)
 		//converter_s(flags, ap);
 		//converter_u(flags, ap);
 		//converter_x(flags, ap);
-		converter_c(flags, ap);
+		//converter_c(flags, ap);
 		//converter_o(flags, ap);
-		//converter_p(flags, ap);
+		print_converter(flags, ap);
 
 	}
 	//printf("\nis there a plus ?\t%d\n", flags->plus);
