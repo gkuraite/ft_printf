@@ -21,7 +21,7 @@ static void		zero(t_flags *flags)
 	flags->hash = 0;
 	flags->zero = 0;
 	flags->space = 0;
-	flags->width = -1;
+	flags->width = 0;
 	flags->precision = -1;
 	flags->size = 0;
 	flags->type = 0;
@@ -29,21 +29,21 @@ static void		zero(t_flags *flags)
 
 static int	print_converter(t_flags *f, va_list *ap)
 {
-	if (f->type == 'd' || f->type == 'i' || f->type == 'D')
+	if (f->format[f->i] == 'd' || f->format[f->i] == 'i' || f->format[f->i] == 'D')
 		return (converter_d(f, ap));
-	if (f->type == 'o' || f->type == 'O')
+	if (f->format[f->i] == 'o' || f->format[f->i] == 'O')
 		return (converter_o(f, ap));
-	if (f->type == 'u' || f->type == 'U')
+	if (f->format[f->i] == 'u' || f->format[f->i] == 'U')
 		return (converter_u(f, ap));
-	if (f->type == 'x' || f->type == 'X')
+	if (f->format[f->i] == 'x' || f->format[f->i] == 'X')
 		return (converter_x(f, ap));
-	if (f->type == 'c' || f->type == 'C')
+	if (f->format[f->i] == 'c' || f->format[f->i] == 'C')
 		return (converter_c(f, ap));
-	//if (f->type == '%')
-	//	return (converter_pc(f));
-	if (f->type == 's' || f->type == 'S')
+	if (f->format[f->i] == '%')
+		return (converter_perc(f));
+	if (f->format[f->i] == 's' || f->format[f->i] == 'S')
 		return (converter_s(f, ap));
-	if (f->type == 'p')
+	if (f->format[f->i] == 'p')
 		return (converter_p(f, ap));
 	return (0);
 }
@@ -63,22 +63,13 @@ static void	checking_printf(t_flags *flags, va_list *ap)
 		
 	}
 	if (ft_strchr(SPECIFIERS, flags->format[flags->i]))
-	{
-		//converter_d(flags, ap);
-		//converter_s(flags, ap);
-		//converter_u(flags, ap);
-		//converter_x(flags, ap);
-		//converter_c(flags, ap);
-		//converter_o(flags, ap);
 		print_converter(flags, ap);
-
-	}
 	//printf("\nis there a plus ?\t%d\n", flags->plus);
 	//printf("\nis there a minus ?\t%d\n", flags->minus);
 	//printf("\nis there a space ?\t%d\n", flags->space);
 	//printf("\nis there a zero ?\t%d\n", flags->zero);
 	//printf("\nis there a hash ?\t%d\n", flags->hash);
-	//printf("\nWhat is the width ?\t%d\n", flags->width);
+	printf("\nWhat is the width ?\t%d\n", flags->width);
 	//printf("\nWhat is the precision ?\t%d\n", flags->precision);
 	//printf("\nWhat is the size ?\t%d\n", flags->size);
 	flags->i++;

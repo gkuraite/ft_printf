@@ -56,7 +56,7 @@ int     converter_c(t_flags *f, va_list *ap);
 int     converter_x(t_flags *f, va_list *ap);
 int     converter_o(t_flags *f, va_list *ap);
 int     converter_p(t_flags *f, va_list *ap);
-
+int		converter_perc(t_flags *f);
 
 
 #endif

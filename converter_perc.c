@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   converter_perc.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/03 16:05:31 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/09/03 11:26:22 by gkuraite         ###   ########.fr       */
+/*   Created: 2018/09/20 14:09:46 by gkuraite          #+#    #+#             */
+/*   Updated: 2018/09/20 14:09:48 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "ft_printf.h"
-#include <stdio.h>
 
-int		main(void)
+int			converter_perc(t_flags *f)
 {
+	char	*str;
+	(void)f;
 
-	//ft_printf("MINE > %%\n");
-	//printf("ORIG > %%\n");
-	printf("ORIG>\t[%d]\n", 9222222222222222222);
-	return(0);
+	if (!(str = ft_strdup("%")))
+		return (-1);
+	ft_putstr(str);
+	free(str);
+	return (0);
 }
