@@ -15,9 +15,10 @@
 
 int		main(void)
 {
+	long long  nb;
 
-	//ft_printf("MINE > %%\n");
-	//printf("ORIG > %%\n");
-	printf("ORIG>\t[%d]\n", 9222222222222222222);
+	nb = 123546468168164;
+	printf("ORIG>\t[%lld]\n", nb);
+	ft_printf("MINE>\t[%lld]\n", nb);
 	return(0);
 }

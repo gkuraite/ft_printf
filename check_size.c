@@ -19,25 +19,31 @@ void    check_size(t_flags *f)
     {
         f->size = 1;
         if (f->format[f->i + 1] == 'h')
+        {
+            f->i++;
             f->size = 2;
+        }
     }
     if (f->format[f->i] == 'l')
-    {      
+    {   
         f->size = 3;
         if (f->format[f->i + 1] == 'l')
+        {
+            f->i++;
             f->size = 4;
+        }
     }
     if (f->format[f->i] == 'j')
     {   
         f->size = 5;
-        if (f->format[f->i + 1] == 'j')
-            printf_errors(1);
+       // if (f->format[f->i + 1] == 'j')
+         //   printf_errors(1);
     }
     if (f->format[f->i] == 'z')
     {
         f->size = 6;
-        if (f->format[f->i + 1] == 'z')
-             printf_errors(1);
+        //if (f->format[f->i + 1] == 'z')
+          //   printf_errors(1);
     }
     f->i++;
 }

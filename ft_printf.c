@@ -29,6 +29,7 @@ static void		zero(t_flags *flags)
 
 static int	print_converter(t_flags *f, va_list *ap)
 {
+	//printf("format = %c\n", f->format[f->i]);
 	if (f->format[f->i] == 'd' || f->format[f->i] == 'i' || f->format[f->i] == 'D')
 		return (converter_d(f, ap));
 	if (f->format[f->i] == 'o' || f->format[f->i] == 'O')
@@ -52,7 +53,7 @@ static void	checking_printf(t_flags *flags, va_list *ap)
 {
 	zero(flags);
 	flags->i++;
-//	printf("format = %c\n", flags->format[flags->i]);
+	//printf("format = %c\n", flags->format[flags->i]);
 	if (flags->format[flags->i] != '\0' && 
 			ft_strchr(SUB_SPECIFIERS, flags->format[flags->i]))
 	{
@@ -69,7 +70,7 @@ static void	checking_printf(t_flags *flags, va_list *ap)
 	//printf("\nis there a space ?\t%d\n", flags->space);
 	//printf("\nis there a zero ?\t%d\n", flags->zero);
 	//printf("\nis there a hash ?\t%d\n", flags->hash);
-	printf("\nWhat is the width ?\t%d\n", flags->width);
+	//printf("\nWhat is the width ?\t%d\n", flags->width);
 	//printf("\nWhat is the precision ?\t%d\n", flags->precision);
 	//printf("\nWhat is the size ?\t%d\n", flags->size);
 	flags->i++;
@@ -83,7 +84,7 @@ int				ft_printf(const char *restrict format, ...)
 	va_start(ap, format);
 	flags.i = 0;
 	flags.format = format;
-	printf("\nWhat's in format? \n%s\n", flags.format);
+//	printf("\nWhat's in format? \n%s\n", flags.format);
 	if (!flags.format)
 	{
 		printf("ERROR 1\n");
