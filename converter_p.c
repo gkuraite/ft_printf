@@ -14,12 +14,12 @@
 
 int     converter_p(t_flags *f, va_list *ap)
 {
-    int num;
+    intmax_t num;
     char	*str;
     char    *tmp;
     (void)f;
     
-    num = (int)va_arg(*ap, int);
+    num = va_arg(*ap, intmax_t);
     //printf("\n NUM = %d\n", num);
     str = ft_itoabase(num, 16);
     tmp = str;

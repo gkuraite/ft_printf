@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   converter_d.c                                      :+:      :+:    :+:   */
+/*   padding.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/03 11:33:42 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/09/06 10:46:54 by gkuraite         ###   ########.fr       */
+/*   Created: 2018/09/25 15:48:17 by gkuraite          #+#    #+#             */
+/*   Updated: 2018/09/25 15:48:31 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static char *handle_width(t_flags *f, char *str)
 	char	*tmp;
 	int		i;
 
-	if (f->width > (i = ft_strlen(str)))
-	{
+	//if (f->width > (i = ft_strlen(str)))
+	//{
 		while (i++ < f->width)
 		{
 			tmp = str;
@@ -30,7 +30,7 @@ static char *handle_width(t_flags *f, char *str)
 				str = ft_strjoin(" ", str);
 			free(tmp);
 		}
-	}
+	//}
 	return (str);
 }
 
@@ -62,7 +62,7 @@ static char	*handle_precision(t_flags *f, char *str)
 		str = ft_strdup("");
 		free(tmp);
 	}
-	if (f->precision && f->precision > (i = ft_strlen(str)))
+	//if (f->precision && f->precision > (i = ft_strlen(str)))
 	{
 		while (i < f->precision)
 		{
@@ -75,40 +75,19 @@ static char	*handle_precision(t_flags *f, char *str)
 	return (str);
 }
 
-static intmax_t	convert_size_di(va_list ap, t_flags *f)
+char		*padding(char *str, t_flags *f)
 {
-	intmax_t	nb;
-
-	if (f->size == 2)
-		nb = (signed char)(va_arg(ap, int));
-	else if (f->size == 1)
-		nb = (short)(va_arg(ap, int));
-	else if (f->size == 4)
-		nb = (long long)(va_arg(ap, long long int));
-	else if (f->size == 3)
-		nb = (long)(va_arg(ap, long));
-	else if (f->size == 5)
-		nb = (intmax_t)(va_arg(ap, intmax_t));
-	else if (f->size == 6)
-		nb = (size_t)(va_arg(ap, size_t));
-	else
-		nb = (int)(va_arg(ap, int));
-	nb = (intmax_t)nb;
-	return (nb);
+	if (!str)
+		return (NULL);
+	if (f->precision > 0 && f->precision > (int)ft_strlen(str))
+        str = handle_precision(str, f);
+    if (f->plus || f->minus)
+		str = handle_sign(str, f);
+	if (f->width > 0 && f->width > (int)ft_strlen(str))
+		str = handle_width(str, f);
+	if (f->precision > 0 && f->width > 0 &&
+			f->width > f->precision &&
+			(int)ft_strlen(str) > f->width && f->minus)
+	str[(int)ft_strlen(str) - 1] = '\0';
+	return (str);
 }
-
-int     converter_d(t_flags *f, va_list *ap)
-{
-	intmax_t	num;
-	char	*str;	
-	(void)f;
-	
-	num = convert_size_di(*ap, f);
-	str = ft_itoabase(num, 10);
-	str = handle_precision(f, str);
-	str = handle_sign(f, str);
-	str = handle_width(f, str);
-	ft_putstr(str);
-	return (0);
-}
-

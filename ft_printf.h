@@ -45,9 +45,6 @@ void	check_flags(t_flags *f);
 void	check_width(t_flags *f);
 void    check_precision(t_flags *f);
 void    check_size(t_flags *f);
-void    printf_errors(int error_num);
-
-void 	is_it_valid(t_flags *f);
 
 int 	converter_d(t_flags *f, va_list *ap);
 int		converter_s(t_flags *f, va_list *ap);
@@ -57,6 +54,8 @@ int     converter_x(t_flags *f, va_list *ap);
 int     converter_o(t_flags *f, va_list *ap);
 int     converter_p(t_flags *f, va_list *ap);
 int		converter_perc(t_flags *f);
+
+//char	*padding(t_flags *f, char *str);
 
 
 #endif

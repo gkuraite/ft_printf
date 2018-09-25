@@ -15,10 +15,14 @@
 
 int		main(void)
 {
-	long long  nb;
 
-	nb = 123546468168164;
-	printf("ORIG>\t[%lld]\n", nb);
-	ft_printf("MINE>\t[%lld]\n", nb);
+	//printf("MINE>\t[%5u]\n", 1);
+	//ft_printf("MINE>\t[%5u]\n", 1);
+
+	printf("ORIG>\t[%10x]\n", 874);
+	ft_printf("MINE>\t[%10x]\n", 874);
+
+	//ft_printf("%s is a %d student\n", "Gaby", 42);
+
 	return(0);
 }

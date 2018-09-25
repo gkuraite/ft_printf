@@ -15,6 +15,7 @@
 
 void    check_size(t_flags *f)
 {
+
     if (f->format[f->i] == 'h')
     {
         f->size = 1;
@@ -34,16 +35,8 @@ void    check_size(t_flags *f)
         }
     }
     if (f->format[f->i] == 'j')
-    {   
         f->size = 5;
-       // if (f->format[f->i + 1] == 'j')
-         //   printf_errors(1);
-    }
     if (f->format[f->i] == 'z')
-    {
         f->size = 6;
-        //if (f->format[f->i + 1] == 'z')
-          //   printf_errors(1);
-    }
-    f->i++;
+    f->size ? f->i++ : 0;
 }

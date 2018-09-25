@@ -13,6 +13,65 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
+static char *handle_width(t_flags *f, char *str)
+{
+	char	*tmp;
+	int		i;
+
+	if (f->width > (i = ft_strlen(str)))
+	{
+		while (i++ < f->width)
+		{
+			tmp = str;
+			if (f->minus)
+				str = ft_strjoin(str, " ");
+			else if (f->zero)
+				str = ft_strjoin("0", str);
+			else
+				str = ft_strjoin(" ", str);
+			free(tmp);
+		}
+	}
+	return (str);
+}
+
+static char *handle_hash(t_flags *f, char *str)
+{
+	char	*tmp;
+
+	if (f->hash && str[0] != '0')
+	{
+		tmp = str;
+		str = ft_strjoin("0", str);
+		free(tmp);
+	}
+	return (str);
+}
+
+static char	*handle_precision(t_flags *f, char *str)
+{
+	char	*tmp;
+	int		i;
+
+	if (!f->precision && str && str[0] == '0')
+	{
+		tmp = str;
+		str = ft_strdup("");
+		free(tmp);
+	}
+	if (f->precision && f->precision > (i = ft_strlen(str)))
+	{
+		while (i < f->precision)
+		{
+			tmp = str;
+			str = ft_strjoin("0", str);
+			free(tmp);
+			i++;
+		}
+	}
+	return (str);
+}
+
 static long long		convert_size_o(va_list ap, const t_flags *f)
 {
 	if (f->size == 4)
@@ -38,9 +97,10 @@ int     converter_o(t_flags *f, va_list *ap)
 	(void)f;
 	
 	num = convert_size_o(*ap, f);
-	//printf("\n NUM = %lld\n", num);
 	str = ft_itoabase(num, 8);
-	//printf("\n str = %s\n", str);
+	str = handle_precision(f, str);
+	str = handle_hash(f, str);
+	str = handle_width(f, str);
 	ft_putstr(str);
 	return (0);
 }
