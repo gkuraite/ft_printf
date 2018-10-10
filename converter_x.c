@@ -12,6 +12,20 @@
 
 #include "ft_printf.h"
 
+static char *flags(t_flags *f, char *str)
+{
+	if (f->hash && ft_strstr(str, "x") > ft_strstr(str, "0") + 1)
+	{
+		str[ft_strlen(str) - ft_strlen(ft_strstr(str, "x"))] = '0';
+		str[ft_strlen(str) - ft_strlen(ft_strstr(str, "0")) + 1] = 'x';
+	}
+	if (f->format[f->i] == 'X')
+		ft_toupperstr(&str);
+	ft_putstr(str);
+	free(str);
+	return (str);
+}
+
 static char *handle_width(t_flags *f, char *str)
 {
 	char	*tmp;
@@ -34,25 +48,30 @@ static char *handle_width(t_flags *f, char *str)
 	return (str);
 }
 
-static char	*handle_precision(t_flags *f, char *str)
+static char *handle_hash_precision(t_flags *f, char *str)
 {
 	char	*tmp;
 	int		i;
 
-	if (!f->precision && str && str[0] == '0')
+	if (f->hash && (tmp = str) && str[0] && str[0] != '0')
 	{
-		tmp = str;
-		str = ft_strdup("");
+		str = ft_strjoin("0x", str);
 		free(tmp);
 	}
-	if (f->precision && f->precision > (i = ft_strlen(str)))
+	else
+		f->hash = 0;
+	if (!f->precision && str && str[0] == '0' && !f->hash)
+		str = NULL;
+	if (!str)
+		str = ft_strdup("");
+	if (f->precision != 0 && f->precision > (i = ft_strlen(str) -
+				2 * f->hash))
 	{
-		while (i < f->precision)
+		while (i++ < f->precision)
 		{
 			tmp = str;
 			str = ft_strjoin("0", str);
 			free(tmp);
-			i++;
 		}
 	}
 	return (str);
@@ -62,8 +81,8 @@ static long long		convert_size_oxu(va_list ap, const t_flags *f)
 {
 	if (f->size == 4)
 		return ((unsigned long long)va_arg(ap, long long));
-	if (f->size == 3) /*|| f->converter == 'U' ||
-			f->converter == 'O')*/
+	if (f->size == 3 || f->format[f->i] == 'U' ||
+			f->format[f->i] == 'O')
 		return ((unsigned long)va_arg(ap, long));
 	if (f->size == 2)
 		return ((unsigned char)va_arg(ap, int));
@@ -79,14 +98,15 @@ static long long		convert_size_oxu(va_list ap, const t_flags *f)
 int     converter_x(t_flags *f, va_list *ap)
 {
     long long num;
-    char	*str;
+	char	*str;
+	int ret;
     (void)f;
     
     num = convert_size_oxu(*ap, f);
-    //printf("\n NUM = %zu\n", num);
 	str = ft_itoabase(num, 16);
-	str = handle_precision(f, str);
 	str = handle_width(f, str);
-    ft_putstr(str);
-    return (0);
+	str = handle_hash_precision(f, str);
+	str = flags(f, str);
+	ret = ft_strlen(str);
+    return (ret);
 }

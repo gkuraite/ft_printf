@@ -12,6 +12,31 @@
 
 #include "ft_printf.h"
 
+static char *flags(t_flags *f, char *str)
+{
+	//int s;
+	if ((ft_strstr(str, "-") > ft_strstr(str, "0")) && ft_strstr(str, "0"))
+	{
+		printf("HELLIO\n");
+		str[ft_strlen(str) - ft_strlen(ft_strstr(str, "-"))] = '0';
+		str[ft_strlen(str) - ft_strlen(ft_strstr(str, "0"))] = '-';
+	}
+	if (ft_strstr(str, "+") > ft_strstr(str, "0") && ft_strstr(str, "0"))
+	{
+		str[ft_strlen(str) - ft_strlen(ft_strstr(str, "+"))] = '0';
+		str[ft_strlen(str) - ft_strlen(ft_strstr(str, "0"))] = '+';
+	}
+	if (ft_strstr(str, " ") > ft_strstr(str, "0") && ft_strstr(str, "0")
+			&& f->zero)
+	{
+		str[ft_strlen(str) - ft_strlen(ft_strstr(str, " "))] = '0';
+		str[ft_strlen(str) - ft_strlen(ft_strstr(str, "0"))] = ' ';
+	}
+	ft_putstr(str);
+	free(str);
+	return (str);
+}
+
 static char *handle_width(t_flags *f, char *str)
 {
 	char	*tmp;
@@ -36,17 +61,17 @@ static char *handle_width(t_flags *f, char *str)
 
 static char *handle_sign(t_flags *f, char *str)
 {
-	char	*temp;
+	char	*tmp;
 
 	if ((f->plus || f->space) && !ft_strstr(str, "-") &&
 			!ft_strstr(str, "+"))
 	{
-		temp = str;
+		tmp = str;
 		if (f->plus)
 			str = ft_strjoin("+", str);
 		else
 			str = ft_strjoin(" ", str);
-		free(temp);
+		free(tmp);
 	}
 	return (str);
 }
@@ -108,7 +133,7 @@ int     converter_d(t_flags *f, va_list *ap)
 	str = handle_precision(f, str);
 	str = handle_sign(f, str);
 	str = handle_width(f, str);
-	ft_putstr(str);
+	str = flags(f, str);
 	return (0);
 }
 

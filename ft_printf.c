@@ -29,7 +29,8 @@ static void		zero(t_flags *flags)
 
 static int	print_converter(t_flags *f, va_list *ap)
 {
-	if (f->format[f->i] == 'd' || f->format[f->i] == 'i' || f->format[f->i] == 'D')
+	if (f->format[f->i] == 'd' || f->format[f->i] == 'i' 
+		|| f->format[f->i] == 'D')
 		return (converter_d(f, ap));
 	if (f->format[f->i] == 'o' || f->format[f->i] == 'O')
 		return (converter_o(f, ap));
@@ -52,55 +53,43 @@ static void	checking_printf(t_flags *f, va_list *ap)
 {
 	zero(f);
 	f->i++;
-	//printf("format = %c\n", f->format[f->i]);
 	if (f->format[f->i] != '\0' && 
 			ft_strchr(SUB_SPECIFIERS, f->format[f->i]))
 	{
 		check_flags(f);
 		check_width(f);
-		//printf("\nWhat is the width ?\t%d\n", f->width);
 		check_precision(f);
 		check_size(f);
 	}
 	if (ft_strchr(SPECIFIERS, f->format[f->i]))
 		print_converter(f, ap);
-	//printf("\nis there a plus ?\t%d\n", f->plus);
-	//printf("\nis there a minus ?\t%d\n", f->minus);
-	//printf("\nis there a space ?\t%d\n", f->space);
-	//printf("\nis there a zero ?\t%d\n", f->zero);
-	//printf("\nis there a hash ?\t%d\n", f->hash);
-	//printf("\nWhat is the width ?\t%d\n", f->width);
-	
-	//printf("\nWhat is the size ?\t%d\n", f->size);
 	f->i++;
 }
 
 int				ft_printf(const char *restrict format, ...)
 {
 	va_list			ap;
-	t_flags			flags;
+	t_flags			f;
 	
 	va_start(ap, format);
-	flags.i = 0;
-	flags.format = format;
-	//printf("\nWhat's in format? \n%s\n", flags.format);
-	if (!flags.format)
+	f.i = 0;
+	f.format = format;
+	if (!f.format)
 	{
 		printf("ERROR 1\n");
 		return (1);
 	}
-	while (flags.format[flags.i])
+	while (f.format[f.i])
 	{
-		if (flags.format[flags.i] == '%')
+		if (f.format[f.i] == '%')
 		{
-			checking_printf(&flags, &ap);
+			checking_printf(&f, &ap);
 		}
-		if (flags.format[flags.i] == '\0')
+		if (f.format[f.i] == '\0')
 			return (0);
 		else
-			ft_putchar((char)flags.format[flags.i]);
-		flags.i++;
-		
+			ft_putchar((char)f.format[f.i]);
+		f.i++;		
 	}
 	return(0);
 }

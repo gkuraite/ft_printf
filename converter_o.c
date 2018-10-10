@@ -76,8 +76,8 @@ static long long		convert_size_o(va_list ap, const t_flags *f)
 {
 	if (f->size == 4)
 		return ((unsigned long long)va_arg(ap, long long));
-	if (f->size == 3) /*|| f->converter == 'U' ||
-			f->converter == 'O')*/
+	if (f->size == 3) /*|| f->format[f->i] == 'U' ||
+			f->format[f->i] == 'O')*/
 		return ((unsigned long)va_arg(ap, long));
 	if (f->size == 2)
 		return ((unsigned char)va_arg(ap, int));

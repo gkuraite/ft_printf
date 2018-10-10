@@ -290,15 +290,14 @@ int     main(void)
 */
 
 /*
-	printf("%");
-	printf("ORIG>\t[%%]\n");
-	printf("ORIG>\t[aa%%bb]\n");
-	printf("ORIG>\t[%%%%%%%%%%]\n");
-	printf("ORIG>\t[.%%.%%.%%.%%.%%.%%.%%.%%.]\n");
-	printf("ORIG>\t[%]\n");
-	printf("ORIG>\t[% Zoooo]\n");
-	printf("ORIG>\t[%]\n");
-	printf("ORIG>\t[{% %}]\n");
+	printf("%");										[error]
+	printf("ORIG>\t[%%]\n");							[%]	
+	printf("ORIG>\t[aa%%bb]\n");						[aa%bb]
+	printf("ORIG>\t[%%%%%%%%%%]\n");					[%%%%%]
+	printf("ORIG>\t[.%%.%%.%%.%%.%%.%%.%%.%%.]\n");		[.%.%.%.%.%.%.%.%.]
+	printf("ORIG>\t[%]\n");								invalid conversion specifier ']'
+	printf("ORIG>\t[% Zoooo]\n");						invalid conversion specifier 'Z'
+	printf("ORIG>\t[{% %}]\n");							[{%}]
 
 
 
