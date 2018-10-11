@@ -14,10 +14,8 @@
 
 static char *flags(t_flags *f, char *str)
 {
-	//int s;
 	if ((ft_strstr(str, "-") > ft_strstr(str, "0")) && ft_strstr(str, "0"))
 	{
-		printf("HELLIO\n");
 		str[ft_strlen(str) - ft_strlen(ft_strstr(str, "-"))] = '0';
 		str[ft_strlen(str) - ft_strlen(ft_strstr(str, "0"))] = '-';
 	}
@@ -136,4 +134,3 @@ int     converter_d(t_flags *f, va_list *ap)
 	str = flags(f, str);
 	return (0);
 }
-

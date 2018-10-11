@@ -52,14 +52,14 @@ int     converter_p(t_flags *f, va_list *ap)
     intmax_t num;
     int     ret;
     char	*str;
-    char    *tmp;
+    //char    *tmp;
     //(void)f;
     
     num = va_arg(*ap, intmax_t);
     str = ft_itoabase(num, 16);
-    tmp = str;
+    //tmp = str;
     str = ft_strjoin("0x", str);
-    free(tmp);
+   // free(tmp);
     str = handle_width(f, str);
     str = handle_flags(f, str);
     //ft_putstr(str);

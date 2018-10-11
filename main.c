@@ -19,9 +19,11 @@ int		main(void)
 
 	//setlocale(LC_ALL, "");
 	
-	printf("ORIG[%d]\n", printf("ORIG>\t[%#0+15p]\n", (void*)14785478));
-	printf("MINE[%d]\n", ft_printf("MINE>\t[%#0+15p]\n", (void*)14785478));
+	//printf("ORIG[%d]\n", printf("ORIG>\t[%#0+15p]\n", (void*)14785478));
+	//printf("MINE[%d]\n", ft_printf("MINE>\t[%#0+15p]\n", (void*)14785478));
 	
+	//printf("%-45%\n");
+	ft_printf("%-45%\n");
 
 	return(0);
 }

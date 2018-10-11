@@ -63,13 +63,14 @@ static void	checking_printf(t_flags *f, va_list *ap)
 	}
 	if (ft_strchr(SPECIFIERS, f->format[f->i]))
 		print_converter(f, ap);
-	f->i++;
+	//f->i++;
 }
 
 int				ft_printf(const char *restrict format, ...)
 {
 	va_list			ap;
 	t_flags			f;
+	//int				ret;
 	
 	va_start(ap, format);
 	f.i = 0;
@@ -82,10 +83,8 @@ int				ft_printf(const char *restrict format, ...)
 	while (f.format[f.i])
 	{
 		if (f.format[f.i] == '%')
-		{
 			checking_printf(&f, &ap);
-		}
-		if (f.format[f.i] == '\0')
+		else if (f.format[f.i] == '\0')
 			return (0);
 		else
 			ft_putchar((char)f.format[f.i]);
