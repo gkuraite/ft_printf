@@ -12,15 +12,14 @@
 
 #include "ft_printf.h"
 
-static char *handle_flags(t_flags *f, char *str)
+static char *handle_position(t_flags *f, char *str)
 {
-    if (f->hash && ft_strstr(str, "x") > ft_strstr(str, "0") + 1)
+    if ((f->hash || f->width) && ft_strstr(str, "x") > ft_strstr(str, "0") + 1)
     {
         str[ft_strlen(str) - ft_strlen(ft_strstr(str, "x"))] = '0';
-         str[ft_strlen(str) - ft_strlen(ft_strstr(str, "0")) + 1] = 'x';
-    }
+        str[ft_strlen(str) - ft_strlen(ft_strstr(str, "0")) + 1] = 'x';
+    };
     ft_putstr(str);
-    //free(str);
     return (str);
 }
 
@@ -36,7 +35,7 @@ static char *handle_width(t_flags *f, char *str)
             tmp = str;
             if (f->minus)
                 str = ft_strjoin(str, " ");
-            if (f->zero)
+            else if (f->zero)
                 str = ft_strjoin("0", str);
             else
                 str = ft_strjoin(" ", str);
@@ -52,20 +51,18 @@ int     converter_p(t_flags *f, va_list *ap)
     intmax_t num;
     int     ret;
     char	*str;
-    //char    *tmp;
-    //(void)f;
+    char    *tmp;
     
     num = va_arg(*ap, intmax_t);
     str = ft_itoabase(num, 16);
-    //tmp = str;
+    tmp = str;
     str = ft_strjoin("0x", str);
-   // free(tmp);
+    free(tmp);
+    if (!str)
+        str = ft_strdup("");
     str = handle_width(f, str);
-    str = handle_flags(f, str);
-    //ft_putstr(str);
+    str = handle_position(f, str);
     ret = ft_strlen(str);
     free(str);
-    printf("ret = %d\n", ret);
-    return (ret);
-    //return (0);
+    return (0);
 }

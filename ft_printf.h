@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include "libft/libft.h"
 # include <stdio.h>
+# include <locale.h>
 
 # define SUB_SPECIFIERS "-+0 #0123456789.hljz"
 # define SPECIFIERS "sSpdDioOuUxXcCb%"

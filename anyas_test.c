@@ -7,11 +7,13 @@
 
 int     main(void)
 {
+
+	setlocale(LC_ALL, "");
 /*
 ** d TESTS
 */
 
-	printf("%s\n", "-----------------");
+	/*printf("%s\n", "-----------------");
 	printf("\n%s\n", "d tests");
 	printf("\n%s\n", "-----------------");
 	
@@ -56,7 +58,7 @@ int     main(void)
 	printf("ORIG>34\t[%-10.5d]\n", 4242);
 	printf("ORIG>35\t[%03.2d]\n", 0);
 	printf("ORIG>36\t[%03.2d]\n", 1);
-	printf("ORIG>37\t[%01d]\n", -1);
+	printf("ORIG>37\t[%01d]\n", -1);*/
 
 	//printf("ORIG>\t[%lld]\n", 9223372036854775808);
 	//printf("ORIG>\t[@moulitest: %.10d]\n", -42);
@@ -196,7 +198,7 @@ int     main(void)
 ** C TESTS
 */
 
-/*
+
 	printf("\n%s\n", "-----------------");
 	printf("\n%s\n", "C tests");
 	printf("\n%s\n", "-----------------");
@@ -221,7 +223,7 @@ int     main(void)
 	printf("ORIG>\t[%#0+15C]\n", L'♥');
 	printf("ORIG>\t[%.0C]\n", L'♥');
 	printf("ORIG>\t[%.10C]\n", L'♥');
-*/
+
 
 /*
 ** S TESTS

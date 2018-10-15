@@ -63,23 +63,18 @@ static void	checking_printf(t_flags *f, va_list *ap)
 	}
 	if (ft_strchr(SPECIFIERS, f->format[f->i]))
 		print_converter(f, ap);
-	//f->i++;
 }
 
 int				ft_printf(const char *restrict format, ...)
 {
 	va_list			ap;
 	t_flags			f;
-	//int				ret;
 	
 	va_start(ap, format);
 	f.i = 0;
 	f.format = format;
 	if (!f.format)
-	{
-		printf("ERROR 1\n");
-		return (1);
-	}
+		return (-1);
 	while (f.format[f.i])
 	{
 		if (f.format[f.i] == '%')

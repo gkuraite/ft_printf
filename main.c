@@ -11,19 +11,27 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
-#include <locale.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <locale.h>
+# include <stdlib.h>
+# include <string.h>
 
 int		main(void)
 {
 
-	//setlocale(LC_ALL, "");
-	
-	//printf("ORIG[%d]\n", printf("ORIG>\t[%#0+15p]\n", (void*)14785478));
-	//printf("MINE[%d]\n", ft_printf("MINE>\t[%#0+15p]\n", (void*)14785478));
-	
-	//printf("%-45%\n");
-	ft_printf("%-45%\n");
+	setlocale(LC_ALL, "");
+
+
+	printf("ORIG>\t[%C]\n", L'Å');
+	//ft_printf("MINE>\t[%C]\n", L'Å');
+//	printf("ORIG>\t[%C]\n", L'Å');
+//	printf("ORIG>\t[%C]\n",  L'Å');
+//	printf("ORIG>\t[%C]\n", L'Å');
+//	printf("ORIG>\t[%C]\n", L'ॵ');
+//	printf("ORIG>\t[%C]\n", L'༆');
+
+	//printf("ORIG>\t[%010p]\n", (void*)14785478);
 
 	return(0);
 }

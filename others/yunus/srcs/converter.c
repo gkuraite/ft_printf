@@ -6,7 +6,7 @@
 /*   By: yabdulha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/09 14:18:55 by yabdulha          #+#    #+#             */
-/*   Updated: 2018/09/26 13:07:20 by gkuraite         ###   ########.fr       */
+/*   Updated: 2018/10/15 14:14:04 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,6 @@ char			*convert_d(va_list ap, t_printf *specs)
 	char			*ret;
 	intmax_t		nb;
 
-	printf("\nnb = %zu\n", nb);
 	nb = convert_len(ap, specs);
 	if (!(specs->isl || specs->isll || specs->isj) && nb == -2147483648)
 		return (ft_strdup("-2147483648"));
