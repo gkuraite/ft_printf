@@ -22,14 +22,17 @@ int		main(void)
 
 	setlocale(LC_ALL, "");
 
+	int	count1;
+	int	count2;
 
-	printf("ORIG>\t[%C]\n", L'Å');
-	//ft_printf("MINE>\t[%C]\n", L'Å');
+	count1 = printf("ORIG>\t[%d]\n", 42);
+    count2 = ft_printf("MINE>\t[%d]\n", 42);
+	printf("ORIG %d\nMINE %d\n", count1, count2);
 //	printf("ORIG>\t[%C]\n", L'Å');
 //	printf("ORIG>\t[%C]\n",  L'Å');
-//	printf("ORIG>\t[%C]\n", L'Å');
-//	printf("ORIG>\t[%C]\n", L'ॵ');
-//	printf("ORIG>\t[%C]\n", L'༆');
+	//printf("ORIG>\t[%C]\n", L'Å');
+	//printf("ORIG>\t[%C]\n", L'ॵ');
+	//printf("ORIG>\t[%C]\n", L'༆');
 
 	//printf("ORIG>\t[%010p]\n", (void*)14785478);
 

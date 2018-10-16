@@ -640,7 +640,7 @@ int	main(void)
 ** C TESTS
 */
 
-/*
+
 	printf("\n%s\n", "-----------------");
 	printf("\n%s\n", "C tests");
 	printf("\n%s\n", "-----------------");
@@ -724,7 +724,7 @@ int	main(void)
 	mr = ft_printf("MINE>\t[%.10C]\n", L'♥');
 	or = printf("ORIG>\t[%.10C]\n", L'♥');
 	ft_print_result(mr, or, __LINE__);
-*/
+
 
 /*
 ** S TESTS
@@ -905,7 +905,7 @@ int	main(void)
 	mr = ft_printf("MINE>\t[{% %}]\n");
 	or = printf("ORIG>\t[{% %}]\n");
 	ft_print_result(mr, or, __LINE__);
-*/
+
 
 	mr = ft_printf("MINE>\t[%u]\n", UINT_MAX);
 	or = printf("ORIG>\t[%u]\n", UINT_MAX);
@@ -926,6 +926,7 @@ int	main(void)
 	mr = ft_printf("%");
 	or = printf("%");
 	ft_print_result(mr, or, __LINE__);
+*/
 
 	ft_putchar(42);
 	return(0);

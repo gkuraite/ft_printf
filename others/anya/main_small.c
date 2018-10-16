@@ -85,70 +85,25 @@ int main()
 
 */
 
-	printf("\n");
-	ft_printf("my: {%2.9p}", 1234); //undefined
-	printf("\n");
-	printf("or: {%2.9p}", 1234);
+	printf("\n%s\n", "-----------------");
+	printf("\n%s\n", "C tests");
+	printf("\n%s\n", "-----------------");
+	
+	mr = ft_printf("MINE>\t[%C]\n", L'Å'); 
+	or = printf("ORIG>\t[%C]\n",  L'Å');
+//	ft_print_result(mr, or, __LINE__);
 
+	mr = ft_printf("MINE>\t[%C]\n", L'Å');
+	or = printf("ORIG>\t[%C]\n", L'Å');
+//	ft_print_result(mr, or, __LINE__);
 
-	printf("\n");
-	ft_printf("my: {%2.9p}", 1234567);  //undefined
-	printf("\n");
-	printf("or: {%2.9p}", 1234567);
+	mr = ft_printf("MINE>\t[%C]\n", L'ॵ');
+	or = printf("ORIG>\t[%C]\n", L'ॵ');
+//	ft_print_result(mr, or, __LINE__);
 
-	printf("\n");
-	printf("c\n");
-	ft_printf("my: {%05.c}", 0); //undefined
-	printf("\n");
-	printf("or: {%05.c}", 0);
-
-	printf("\n");
-	printf("s\n");
-	ft_printf("my: {%05.s}", 0);  //undefined
-	printf("\n");
-	printf("or: {%05.s}", 0);
-
-	printf("\n");
-	ft_printf("my: {% o|%+o}", 42, 42); //undefined
-	printf("\n");
-	printf("pf: {% o|%+o}", 42, 42);
-
-	printf("\n");
-	ft_printf("my: {%03c}", 0); //undefined
-	printf("\n");
-	printf("pf: {%03c}", 0);
-
-	printf("\n");
-	ft_printf("my: {%05.S}", L"42 c est cool"); //undefined
-	printf("\n");
-	printf("pf: {%05.S}", L"42 c est cool");
-
-	printf("\n");
-	printf("END UNDEFINED\n");
-
-	printf("\n");
-	ft_printf("my: {% 03d}", 0);
-	printf("\n");
-	printf("pf: {% 03d}", 0);
-
-	printf("\n");
-	ft_printf("my: %#.3o", 1);
-	printf("\n");
-	printf("pf: %#.3o", 1);
-
-	printf("\n");
-	ft_printf("MINE>\t[%.u, %.0u]\n", 0, 0);
-	printf("\n");
-	printf("ORIG>\t[%.u, %.0u]\n", 0, 0);
-
-	printf("\n");
-	ft_printf("my: {%.3%}");
-	printf("\n");
-	printf("pf: {%.3%}");
-
-	printf("\n");
-	printf(" - %d\n", ft_printf("{%d}\n", 42));
-	printf(" - %d\n", printf("{%d}\n", 42));
+	mr = ft_printf("MINE>\t[%C]\n", L'༆');
+	or = printf("ORIG>\t[%C]\n", L'༆');
+//	ft_print_result(mr, or, __LINE__);
 
 	return (0);
 }

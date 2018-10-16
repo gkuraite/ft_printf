@@ -6,13 +6,13 @@
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/24 13:32:41 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/09/24 13:32:43 by gkuraite         ###   ########.fr       */
+/*   Updated: 2018/10/16 17:01:55 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char *flags(t_flags *f, char *str)
+static char			*handle_position(t_flags *f, char *str)
 {
 	if (f->hash && ft_strstr(str, "x") > ft_strstr(str, "0") + 1)
 	{
@@ -22,18 +22,17 @@ static char *flags(t_flags *f, char *str)
 	if (f->format[f->i] == 'X')
 		ft_toupperstr(&str);
 	ft_putstr(str);
-	free(str);
 	return (str);
 }
 
-static char *handle_width(t_flags *f, char *str)
+static char			*handle_width(t_flags *f, char *str)
 {
 	char	*tmp;
 	int		i;
 
 	if (f->width > (i = ft_strlen(str)))
 	{
-		while (i++ < f->width)
+		while (i < f->width)
 		{
 			tmp = str;
 			if (f->minus)
@@ -43,12 +42,13 @@ static char *handle_width(t_flags *f, char *str)
 			else
 				str = ft_strjoin(" ", str);
 			free(tmp);
+			i++;
 		}
 	}
 	return (str);
 }
 
-static char *handle_hash_precision(t_flags *f, char *str)
+static char			*handle_hash_precision(t_flags *f, char *str)
 {
 	char	*tmp;
 	int		i;
@@ -77,7 +77,7 @@ static char *handle_hash_precision(t_flags *f, char *str)
 	return (str);
 }
 
-static long long		convert_size_oxu(va_list ap, const t_flags *f)
+static long long	convert_size_oxu(va_list ap, const t_flags *f)
 {
 	if (f->size == 4)
 		return ((unsigned long long)va_arg(ap, long long));
@@ -95,18 +95,18 @@ static long long		convert_size_oxu(va_list ap, const t_flags *f)
 	return ((unsigned int)va_arg(ap, int));
 }
 
-int     converter_x(t_flags *f, va_list *ap)
+int					converter_x(t_flags *f, va_list *ap)
 {
-    long long num;
-	char	*str;
-	int ret;
-    (void)f;
-    
-    num = convert_size_oxu(*ap, f);
+	long long	num;
+	char		*str;
+	int			len;
+
+	num = convert_size_oxu(*ap, f);
 	str = ft_itoabase(num, 16);
 	str = handle_width(f, str);
 	str = handle_hash_precision(f, str);
-	str = flags(f, str);
-	ret = ft_strlen(str);
-    return (ret);
+	str = handle_position(f, str);
+	len = ft_strlen(str);
+	free(str);
+	return (len);
 }

@@ -6,12 +6,11 @@
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/03 16:28:28 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/07/18 11:38:24 by gkuraite         ###   ########.fr       */
+/*   Updated: 2018/10/16 17:04:37 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 static void		zero(t_flags *flags)
 {
@@ -24,12 +23,11 @@ static void		zero(t_flags *flags)
 	flags->width = 0;
 	flags->precision = 0;
 	flags->size = 0;
-	flags->type = 0;
 }
 
-static int	print_converter(t_flags *f, va_list *ap)
+static int		print_converter(t_flags *f, va_list *ap)
 {
-	if (f->format[f->i] == 'd' || f->format[f->i] == 'i' 
+	if (f->format[f->i] == 'd' || f->format[f->i] == 'i'
 		|| f->format[f->i] == 'D')
 		return (converter_d(f, ap));
 	if (f->format[f->i] == 'o' || f->format[f->i] == 'O')
@@ -49,11 +47,11 @@ static int	print_converter(t_flags *f, va_list *ap)
 	return (0);
 }
 
-static void	checking_printf(t_flags *f, va_list *ap)
+static int		checking_printf(t_flags *f, va_list *ap)
 {
 	zero(f);
 	f->i++;
-	if (f->format[f->i] != '\0' && 
+	if (f->format[f->i] != '\0' &&
 			ft_strchr(SUB_SPECIFIERS, f->format[f->i]))
 	{
 		check_flags(f);
@@ -62,14 +60,17 @@ static void	checking_printf(t_flags *f, va_list *ap)
 		check_size(f);
 	}
 	if (ft_strchr(SPECIFIERS, f->format[f->i]))
-		print_converter(f, ap);
+		return (print_converter(f, ap));
+	return (0);
 }
 
 int				ft_printf(const char *restrict format, ...)
 {
 	va_list			ap;
 	t_flags			f;
-	
+	int				count;
+
+	count = 0;
 	va_start(ap, format);
 	f.i = 0;
 	f.format = format;
@@ -78,12 +79,15 @@ int				ft_printf(const char *restrict format, ...)
 	while (f.format[f.i])
 	{
 		if (f.format[f.i] == '%')
-			checking_printf(&f, &ap);
+			count += checking_printf(&f, &ap);
 		else if (f.format[f.i] == '\0')
 			return (0);
 		else
+		{
 			ft_putchar((char)f.format[f.i]);
-		f.i++;		
+			count++;
+		}
+		f.i++;
 	}
-	return(0);
+	return (count);
 }

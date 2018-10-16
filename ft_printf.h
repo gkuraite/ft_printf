@@ -16,7 +16,6 @@
 # include <stdarg.h>
 # include "libft/libft.h"
 # include <stdio.h>
-# include <locale.h>
 
 # define SUB_SPECIFIERS "-+0 #0123456789.hljz"
 # define SPECIFIERS "sSpdDioOuUxXcCb%"
@@ -35,28 +34,28 @@ typedef struct		s_flags
 	int		space;
 	int		width;
 	int		precision;
-	int		size;
-	int		type;
-
-	
+	int		size;	
 }					t_flags;
 
-int		ft_printf(const char *restrict format, ...);
-void	check_flags(t_flags *f);
-void	check_width(t_flags *f);
-void    check_precision(t_flags *f);
-void    check_size(t_flags *f);
+int			ft_printf(const char *restrict format, ...);
+void		check_flags(t_flags *f);
+void		check_width(t_flags *f);
+void    	check_precision(t_flags *f);
+void    	check_size(t_flags *f);
 
-int 	converter_d(t_flags *f, va_list *ap);
-int		converter_s(t_flags *f, va_list *ap);
-int     converter_u(t_flags *f, va_list *ap);
-int     converter_c(t_flags *f, va_list *ap);
-int     converter_x(t_flags *f, va_list *ap);
-int     converter_o(t_flags *f, va_list *ap);
-int     converter_p(t_flags *f, va_list *ap);
-int		converter_perc(t_flags *f);
+int 		converter_d(t_flags *f, va_list *ap);
+int			converter_s(t_flags *f, va_list *ap);
+int     	converter_u(t_flags *f, va_list *ap);
+int     	converter_c(t_flags *f, va_list *ap);
+int     	converter_x(t_flags *f, va_list *ap);
+int     	converter_o(t_flags *f, va_list *ap);
+int     	converter_p(t_flags *f, va_list *ap);
+int			converter_perc(t_flags *f);
 
-//char	*padding(t_flags *f, char *str);
-
+intmax_t	convert_size_d(va_list ap, t_flags *f);
+char		*handle_precision_d(t_flags *f, char *str);
+char		*handle_sign_d(t_flags *f, char *str);
+char		*handle_width_d(t_flags *f, char *str);
+char		*handle_position_d(t_flags *f, char *str);
 
 #endif
