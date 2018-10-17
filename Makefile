@@ -21,11 +21,11 @@ SRC = ft_printf.c \
 LIBFT_PATH = libft/
 LIBFT_SRC = ft_putchar.c  ft_putnbr.c ft_putstr.c ft_swap.c ft_toupper.c \
 			ft_toupper_str.c ft_isdigit.c ft_atoi.c ft_itoa.c  ft_utoa.c \
-			ft_itoabase.c \
+			ft_itoabase.c ft_strclr.c ft_strsub.c\
 			ft_strjoin.c ft_strchr.c ft_strlen.c ft_strdup.c ft_strnew.c \
 			ft_strcpy.c ft_strcat.c ft_strstr.c \
 			ft_strrev.c ft_strnjoin.c ft_memalloc.c ft_memset.c \
-			ft_bzero.c ft_unicode.c 
+			ft_bzero.c ft_unicode.c ft_strjoinfree.c ft_strdel.c
 
 OBJ = $(SRC:.c=.o)
 LIB_OBJ = $(LIBFT_SRC:.c=.o)

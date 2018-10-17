@@ -25,16 +25,9 @@ int		main(void)
 	int	count1;
 	int	count2;
 
-	count1 = printf("ORIG>\t[%d]\n", 42);
-    count2 = ft_printf("MINE>\t[%d]\n", 42);
-	printf("ORIG %d\nMINE %d\n", count1, count2);
-//	printf("ORIG>\t[%C]\n", L'Å');
-//	printf("ORIG>\t[%C]\n",  L'Å');
-	//printf("ORIG>\t[%C]\n", L'Å');
-	//printf("ORIG>\t[%C]\n", L'ॵ');
-	//printf("ORIG>\t[%C]\n", L'༆');
-
-	//printf("ORIG>\t[%010p]\n", (void*)14785478);
+	count1 = printf("ORIG>\t[%.40S]\n", L"Для меня нет полонийного чая, спасибо");
+    count2 = ft_printf("MINE>\t[%.40S]\n", L"Для меня нет полонийного чая, спасибо");
+	printf("ORIG %d\nMINE %d\n", count1, count2); 
 
 	return(0);
 }

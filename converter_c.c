@@ -6,13 +6,13 @@
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 11:24:37 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/10/16 16:39:47 by gkuraite         ###   ########.fr       */
+/*   Updated: 2018/10/17 08:32:15 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	inthandle_zero(char *str)
+static int	handle_zero(char *str)
 {
 	if (ft_strlen(str))
 		ft_putstr(str);
