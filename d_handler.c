@@ -14,6 +14,9 @@
 
 char		*handle_position_d(t_flags *f, char *str)
 {
+	int	s;
+
+	s = 0;
 	if ((ft_strstr(str, "-") > ft_strstr(str, "0")) && ft_strstr(str, "0"))
 	{
 		str[ft_strlen(str) - ft_strlen(ft_strstr(str, "-"))] = '0';

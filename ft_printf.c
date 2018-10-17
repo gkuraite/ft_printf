@@ -75,7 +75,7 @@ int				ft_printf(const char *restrict format, ...)
 	f.i = 0;
 	f.format = format;
 	if (!f.format)
-		return (-1);
+		return (1);
 	while (f.format[f.i])
 	{
 		if (f.format[f.i] == '%')

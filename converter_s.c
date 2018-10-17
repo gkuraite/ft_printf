@@ -6,7 +6,7 @@
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 11:41:24 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/10/17 13:48:27 by gkuraite         ###   ########.fr       */
+/*   Updated: 2018/10/17 16:51:59 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int			converter_s(t_flags *f, va_list *ap)
 	if (f->format[f->i] == 'S' || f->size == 3)
 	{
 		if ((str = va_arg(*ap, wchar_t*)))
-			store = strdup("");
+			store = ft_strdup("");
 		while (store && str[count])
 			store = ft_strjoinfree(store, ft_unicode(str[count++]));
 	}

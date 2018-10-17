@@ -103,6 +103,8 @@ int					converter_x(t_flags *f, va_list *ap)
 
 	num = convert_size_oxu(*ap, f);
 	str = ft_itoabase(num, 16);
+	if (!str)
+		return (-1);
 	str = handle_width(f, str);
 	str = handle_hash_precision(f, str);
 	str = handle_position(f, str);
