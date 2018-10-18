@@ -33,7 +33,7 @@ char		*handle_position_d(t_flags *f, char *str)
 		str[ft_strlen(str) - ft_strlen(ft_strstr(str, " "))] = '0';
 		str[ft_strlen(str) - ft_strlen(ft_strstr(str, "0"))] = ' ';
 	}
-	ft_putstr(str);
+	ft_putstr(str + 0 * (s = ft_strlen(str)));
 	return (str);
 }
 
@@ -81,12 +81,12 @@ char		*handle_precision_d(t_flags *f, char *str)
 	char	*tmp;
 	int		i;
 
-	if (!f->precision && str && str[0] == '0')
-	{
-		tmp = str;
-		str = ft_strdup("");
-		free(tmp);
-	}
+	//if (!f->precision && str && str[0] == '0')
+	//{
+	//	tmp = str;
+	//	str = ft_strdup("");
+	//	free(tmp);
+	//}
 	if (f->precision && f->precision > (i = ft_strlen(str)))
 	{
 		while (i < f->precision)

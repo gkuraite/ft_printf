@@ -60,8 +60,8 @@ static char			*handle_hash_precision(t_flags *f, char *str)
 	}
 	else
 		f->hash = 0;
-	if (!f->precision && str && str[0] == '0' && !f->hash)
-		str = NULL;
+	//if (!f->precision && str && str[0] == '0' && !f->hash)
+	//	str = NULL;
 	if (!str)
 		str = ft_strdup("");
 	if (f->precision != 0 && f->precision > (i = ft_strlen(str) -
