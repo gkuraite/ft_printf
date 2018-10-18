@@ -33,7 +33,7 @@ char		*handle_position_d(t_flags *f, char *str)
 		str[ft_strlen(str) - ft_strlen(ft_strstr(str, " "))] = '0';
 		str[ft_strlen(str) - ft_strlen(ft_strstr(str, "0"))] = ' ';
 	}
-	ft_putstr(str + 0 * (s = ft_strlen(str)));
+	ft_putstr(str);
 	return (str);
 }
 
@@ -81,14 +81,16 @@ char		*handle_precision_d(t_flags *f, char *str)
 	char	*tmp;
 	int		i;
 
-	//if (!f->precision && str && str[0] == '0')
-	//{
-	//	tmp = str;
-	//	str = ft_strdup("");
-	//	free(tmp);
-	//}
-	if (f->precision && f->precision > (i = ft_strlen(str)))
+	if (!f->precision && str && str[0] == '0')
 	{
+		tmp = str;
+		str = ft_strdup("");
+		free(tmp);
+	}
+	if (f->precision != -1 && f->precision > (i = ft_strlen(str)))
+	{
+		if (str[0] == '-')
+			i--;
 		while (i < f->precision)
 		{
 			tmp = str;
@@ -96,6 +98,8 @@ char		*handle_precision_d(t_flags *f, char *str)
 			free(tmp);
 			i++;
 		}
+		if (f->precision && f->zero)
+		f->zero = 0;
 	}
 	return (str);
 }

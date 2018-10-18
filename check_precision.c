@@ -17,6 +17,7 @@ void	check_precision(t_flags *f)
 	if (f->format[f->i] == '.')
 	{
 		f->i++;
+		f->precision = 0;
 		while (ft_isdigit(f->format[f->i]))
 		{
 			f->precision *= 10;

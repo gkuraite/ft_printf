@@ -21,7 +21,7 @@ static void		zero(t_flags *flags)
 	flags->zero = 0;
 	flags->space = 0;
 	flags->width = 0;
-	flags->precision = 0;
+	flags->precision = -1;
 	flags->size = 0;
 }
 

@@ -19,7 +19,7 @@ int		converter_d(t_flags *f, va_list *ap)
 	int			len;
 
 	num = convert_size_d(*ap, f);
-	str = ft_itoabase(num, 10);
+	str = ft_intmaxtoa(num);
 	str = handle_precision_d(f, str);
 	str = handle_sign_d(f, str);
 	str = handle_width_d(f, str);
