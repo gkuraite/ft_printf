@@ -33,9 +33,9 @@ OBJ_SRC = $(addprefix $(LIBFT_PATH),$(LIBFT_SRC))
 
 FLAGS = -Wall -Werror -Wextra
 
-all : $(NAME)
+all : $(NAME) 
 
-$(NAME):
+$(NAME): $(OBJ)
 		@gcc -c $(FLAGS) $(SRC) $(OBJ_SRC) -I ft_printf.h
 		@ar rc $(NAME) $(OBJ) $(LIB_OBJ)
 		@ranlib $(NAME)

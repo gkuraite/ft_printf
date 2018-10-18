@@ -101,5 +101,6 @@ int					converter_o(t_flags *f, va_list *ap)
 	str = handle_hash(f, str);
 	str = handle_width(f, str);
 	len = ft_strlen(str);
+	free(str);
 	return (len);
 }
