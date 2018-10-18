@@ -6,7 +6,7 @@
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:33:42 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/10/16 17:03:10 by gkuraite         ###   ########.fr       */
+/*   Updated: 2018/10/18 15:44:11 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ char		*handle_precision_d(t_flags *f, char *str)
 			i++;
 		}
 		if (f->precision && f->zero)
-		f->zero = 0;
+			f->zero = 0;
 	}
 	return (str);
 }

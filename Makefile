@@ -29,7 +29,7 @@ LIBFT_SRC = ft_putchar.c  ft_putnbr.c ft_putstr.c ft_swap.c ft_toupper.c \
 
 OBJ = $(SRC:.c=.o)
 LIB_OBJ = $(LIBFT_SRC:.c=.o)
-OBJ_SRC = $(addprefix $(LIBFT_PATH),$(LIBFT_SRC))
+OBJ_SRC = $(addprefix $(LIBFT_PATH),$(LIB_OBJ))
 
 FLAGS = -Wall -Werror -Wextra
 
@@ -39,13 +39,15 @@ libftcomp:
 		@make -C $(LIBFT_PATH)
 
 $(NAME): libftcomp $(OBJ)
-		@gcc -c $(FLAGS) $(SRC) $(OBJ_SRC) -I ft_printf.h
-		@ar rc $(NAME) $(OBJ) $(LIB_OBJ)
-		@ranlib $(NAME)
 		@printf "\r\\033[1;32mDone!\033[0m\n"
 
+$(OBJ): $(SRC) $(OBJ_SRC) ft_printf.h libft/libft.h
+		@gcc -c $(FLAGS) $(SRC) -I ft_printf.h 
+		@ar rc $(NAME) $(OBJ) $(OBJ_SRC)
+		@ranlib $(NAME)
+
 clean: 
-		@rm -rf $(OBJ)
+		@rm -rf $(OBJ) $(LIB_OBJ)
 		@make -C $(LIBFT_PATH) clean
 		@printf "\r\033[1;31mCleaned .o!\033[0m\n"
 

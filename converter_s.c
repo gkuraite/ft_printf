@@ -36,7 +36,7 @@ static char	*handle_precision(t_flags *f, char *str)
 {
 	char	*tmp;
 
-	if ((f->format[f->i] == 'S' || f->size == 3) && f->precision)
+	if ((f->format[f->i] == 'S' || f->size == 3) && f->precision > -1)
 	{
 		while ((str[f->precision] & 0xC0) == 0x80)
 			f->precision--;

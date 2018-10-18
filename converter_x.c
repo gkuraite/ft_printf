@@ -6,7 +6,7 @@
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/24 13:32:41 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/10/16 17:01:55 by gkuraite         ###   ########.fr       */
+/*   Updated: 2018/10/18 15:43:38 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static char			*handle_width(t_flags *f, char *str)
 	return (str);
 }
 
-static char		*handle_hash_precision(t_flags *f, char *str)
+static char			*handle_hash_precision(t_flags *f, char *str)
 {
 	char	*tmp;
 	int		i;
@@ -71,7 +71,7 @@ static char		*handle_hash_precision(t_flags *f, char *str)
 		{
 			tmp = str;
 			str = ft_strjoin("0", str);
-		free(tmp);
+			free(tmp);
 		}
 	}
 	return (str);
