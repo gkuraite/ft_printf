@@ -49,21 +49,18 @@ static int		print_converter(t_flags *f, va_list *ap)
 
 static int		checking_printf(t_flags *f, va_list *ap)
 {
-	if (printf_is_valid(f))
+	zero(f);
+	f->i++;
+	if (f->format[f->i] != '\0' &&
+			ft_strchr(SUB_SPECIFIERS, f->format[f->i]))
 	{
-		zero(f);
-		f->i++;
-		if (f->format[f->i] != '\0' &&
-				ft_strchr(SUB_SPECIFIERS, f->format[f->i]))
-		{
-			check_flags(f);
-			check_width(f);
-			check_precision(f);
-			check_size(f);
-		}
-		if (ft_strchr(SPECIFIERS, f->format[f->i]))
-			return (print_converter(f, ap));
+		check_flags(f);
+		check_width(f);
+		check_precision(f);
+		check_size(f);
 	}
+	if (ft_strchr(SPECIFIERS, f->format[f->i]))
+		return (print_converter(f, ap));
 	return (0);
 }
 

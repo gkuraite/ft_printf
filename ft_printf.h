@@ -56,6 +56,4 @@ char				*handle_sign_d(t_flags *f, char *str);
 char				*handle_width_d(t_flags *f, char *str);
 char				*handle_position_d(t_flags *f, char *str);
 
-int					printf_is_valid(t_flags *f);
-
 #endif

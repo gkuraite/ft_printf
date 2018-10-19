@@ -16,7 +16,7 @@ SRC = ft_printf.c \
 	  converter_d.c converter_s.c converter_u.c converter_o.c converter_x.c \
 	  converter_c.c converter_p.c converter_perc.c \
 	  check_flags.c check_width.c check_precision.c check_size.c \
-	  d_handler.c printf_is_valid.c
+	  d_handler.c
 
 LIBFT_PATH = libft/
 LIBFT_SRC = ft_putchar.c  ft_putnbr.c ft_putstr.c ft_swap.c ft_toupper.c \
