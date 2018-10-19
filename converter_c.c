@@ -57,7 +57,8 @@ int			converter_c(t_flags *f, va_list *ap)
 	else
 	{
 		c = va_arg(*ap, int);
-		store = ft_unicode(c);
+		store = ft_strnew(1);
+		store[0] = c;
 	}
 	if (!store)
 		return (-1);

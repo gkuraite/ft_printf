@@ -42,7 +42,7 @@ static char	*handle_precision(t_flags *f, char *str)
 			f->precision--;
 		ft_strclr(str + f->precision);
 	}
-	else if (f->precision > 0 && (f->precision < (int)ft_strlen(str)))
+	else if (f->precision != -1 && (f->precision < (int)ft_strlen(str)))
 	{
 		tmp = str;
 		str = ft_strsub(str, 0, f->precision);

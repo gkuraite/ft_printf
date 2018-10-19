@@ -15,7 +15,6 @@
 # include <limits.h>
 # include <stdarg.h>
 # include "libft/libft.h"
-# include <stdio.h>
 
 # define SUB_SPECIFIERS "-+0 #0123456789.hljz"
 # define SPECIFIERS "sSpdDioOuUxXcCb%"
@@ -56,5 +55,7 @@ char				*handle_precision_d(t_flags *f, char *str);
 char				*handle_sign_d(t_flags *f, char *str);
 char				*handle_width_d(t_flags *f, char *str);
 char				*handle_position_d(t_flags *f, char *str);
+
+int					printf_is_valid(t_flags *f);
 
 #endif

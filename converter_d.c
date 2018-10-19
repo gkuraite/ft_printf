@@ -19,6 +19,8 @@ int		converter_d(t_flags *f, va_list *ap)
 	int			len;
 
 	num = convert_size_d(*ap, f);
+	if (f->minus)
+		f->zero = 0;
 	str = ft_intmaxtoa(num);
 	str = handle_precision_d(f, str);
 	str = handle_sign_d(f, str);

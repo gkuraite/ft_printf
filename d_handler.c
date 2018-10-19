@@ -6,7 +6,7 @@
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:33:42 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/10/18 15:44:11 by gkuraite         ###   ########.fr       */
+/*   Updated: 2018/10/19 16:49:46 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 char		*handle_position_d(t_flags *f, char *str)
 {
-	int	s;
-
-	s = 0;
 	if ((ft_strstr(str, "-") > ft_strstr(str, "0")) && ft_strstr(str, "0"))
 	{
 		str[ft_strlen(str) - ft_strlen(ft_strstr(str, "-"))] = '0';
@@ -108,7 +105,9 @@ intmax_t	convert_size_d(va_list ap, t_flags *f)
 {
 	intmax_t	nb;
 
-	if (f->size == 2)
+	if (f->format[f->i] == 'D')
+		nb = (long)(va_arg(ap, long int));
+	else if (f->size == 2)
 		nb = (signed char)(va_arg(ap, int));
 	else if (f->size == 1)
 		nb = (short)(va_arg(ap, int));
