@@ -6,7 +6,7 @@
 /*   By: gkuraite <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/24 13:32:41 by gkuraite          #+#    #+#             */
-/*   Updated: 2018/10/18 15:43:38 by gkuraite         ###   ########.fr       */
+/*   Updated: 2018/10/19 19:35:12 by gkuraite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,8 @@ int					converter_x(t_flags *f, va_list *ap)
 	num = convert_size_oxu(*ap, f);
 	str = ft_itoabase(num, 16);
 	str = handle_hash_precision(f, str);
+	if (f->precision != -1 && f->zero)
+		f->zero = 0;
 	str = handle_width(f, str);
 	str = handle_position(f, str);
 	len = ft_strlen(str);
